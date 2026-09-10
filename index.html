@@ -3,101 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nakama CMS Universal</title>
-    <meta name="description" content="Universal Website Generator CMS" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Nakama CMS</title>
+    <meta name="description" content="Nakama Digital Universal Website CMS" />
   </head>
   <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <h2>NAKAMA CMS</h2>
-      <button class="nav-btn active" data-target="dashboard">Dashboard</button>
-      <button class="nav-btn" data-target="customers">Customers</button>
-      <button class="nav-btn" data-target="websites">Websites</button>
-      <button class="nav-btn" data-target="themes">Themes</button>
-    </div>
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><div><strong>NAKAMA</strong><span>CMS</span></div></div>
+      <nav>
+        <button class="nav-btn active" data-target="dashboard">Dashboard</button>
+        <button class="nav-btn" data-target="customers">Customers</button>
+        <button class="nav-btn" data-target="websites">Websites</button>
+        <button class="nav-btn" data-target="themes">Themes</button>
+        <button class="nav-btn" data-target="settings">Settings</button>
+      </nav>
+      <div class="sidebar-foot">Universal Website Generator<br><small>v1.0</small></div>
+    </aside>
 
-    <!-- Content -->
-    <div class="main">
-      
-      <!-- Dashboard Page -->
-      <div id="dashboard" class="page active">
-        <h1>Dashboard</h1>
-        <div class="card">
-          <p>Selamat datang di Nakama CMS Universal. Sistem siap digunakan.</p>
-        </div>
-      </div>
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">NAKAMA DIGITAL</span><h1 id="page-title">Dashboard</h1></div><div id="api-status" class="status-pill offline">API belum dikonfigurasi</div></header>
 
-      <!-- Customers Page -->
-      <div id="customers" class="page">
-        <h1>Customers</h1>
-        <div class="card">
-          <h3>Tambah Customer Baru</h3>
-          <div class="form-group">
-            <label>Nama Customer</label>
-            <input type="text" id="cust-name" placeholder="John Doe">
-          </div>
-          <div class="form-group">
-            <label>Nama Bisnis</label>
-            <input type="text" id="cust-biz" placeholder="Toko Maju Jaya">
-          </div>
-          <button class="btn" id="btn-save-customer">Simpan Customer</button>
-        </div>
-        
-        <div class="card" style="margin-top: 20px;">
-          <h3>Daftar Customer</h3>
-          <div id="customers-table">Loading...</div>
-        </div>
-      </div>
+      <section id="dashboard" class="page active">
+        <div class="hero card"><div><span class="eyebrow">CONTROL CENTER</span><h2>Bangun dan kelola website customer dari satu tempat.</h2><p>Customer → Theme → Generate → GitHub Repository → GitHub Pages.</p></div><button class="btn" data-target="customers">+ Customer Baru</button></div>
+        <div class="stats"><div class="stat card"><span>Customers</span><strong id="stat-customers">0</strong></div><div class="stat card"><span>Websites</span><strong id="stat-websites">0</strong></div><div class="stat card"><span>Themes</span><strong>12</strong></div><div class="stat card"><span>Published</span><strong id="stat-published">0</strong></div></div>
+        <div class="card"><div class="section-head"><div><h3>Workflow</h3><p>Urutan kerja CMS Nakama.</p></div></div><div class="workflow"><div><b>01</b><span>Customer</span></div><i>→</i><div><b>02</b><span>Theme</span></div><i>→</i><div><b>03</b><span>Generate</span></div><i>→</i><div><b>04</b><span>GitHub</span></div><i>→</i><div><b>05</b><span>Publish</span></div></div></div>
+      </section>
 
-      <!-- Websites Page -->
-      <div id="websites" class="page">
-        <h1>Websites</h1>
-        <div class="card">
-          <h3>Daftar Websites</h3>
-          <div id="websites-table">Loading...</div>
-        </div>
-      </div>
+      <section id="customers" class="page">
+        <div class="page-actions"><div><p class="eyebrow">CUSTOMER MANAGEMENT</p><h2>Customers</h2></div><button class="btn" id="btn-new-customer">+ Tambah Customer</button></div>
+        <div id="customer-form" class="card hidden"><h3>Customer</h3><div class="form-grid"><label>Nama Pemilik<input id="cust-name" placeholder="John Doe"></label><label>Nama Bisnis<input id="cust-biz" placeholder="Hotel Maju Jaya"></label><label>Kategori<select id="cust-category"><option>Hotel</option><option>Clinic</option><option>Restaurant</option><option>Catering</option><option>UMKM</option><option>Company Profile</option><option>Other</option></select></label><label>Email<input id="cust-email" type="email" placeholder="email@example.com"></label><label>WhatsApp<input id="cust-whatsapp" placeholder="628123456789"></label><label>Kota<input id="cust-city" placeholder="Luwuk"></label><label class="wide">Alamat<input id="cust-address" placeholder="Alamat bisnis"></label></div><div class="form-actions"><button class="btn-outline" id="btn-cancel-customer">Batal</button><button class="btn" id="btn-save-customer">Simpan Customer</button></div></div>
+        <div class="card"><div class="section-head"><div><h3>Daftar Customer</h3><p>Data tersimpan di Google Sheets ketika Apps Script API aktif.</p></div><button class="btn-outline" id="btn-refresh-customers">Refresh</button></div><div id="customers-table" class="table-wrap"><div class="empty">Belum ada customer.</div></div></div>
+      </section>
 
-      <!-- Themes Page -->
-      <div id="themes" class="page">
-        <h1>Themes</h1>
-        <p style="margin-bottom: 20px; color: #64748b;">Pilih dari 10 tema yang tersedia untuk website pelanggan Anda.</p>
-        <div id="themes-grid" class="themes-grid">
-          <!-- Themes will be injected here via JS -->
-        </div>
-      </div>
+      <section id="websites" class="page"><div class="page-actions"><div><p class="eyebrow">WEBSITE MANAGEMENT</p><h2>Websites</h2></div><button class="btn-outline" id="btn-refresh-websites">Refresh</button></div><div class="card"><div id="websites-table" class="table-wrap"><div class="empty">Belum ada website.</div></div></div></section>
 
-    </div>
+      <section id="themes" class="page"><div class="page-actions"><div><p class="eyebrow">TEMPLATE LIBRARY</p><h2>12 Premium Themes</h2></div></div><div id="themes-grid" class="themes-grid"></div></section>
 
-    <!-- Preview Modal -->
-    <div id="preview-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span id="modal-title">Theme Preview</span>
-          <span class="close-btn" id="close-preview">&times;</span>
-        </div>
-        <div id="preview-container"></div>
-      </div>
-    </div>
+      <section id="settings" class="page"><div class="page-actions"><div><p class="eyebrow">CONFIGURATION</p><h2>Settings</h2></div></div><div class="card"><h3>Apps Script API</h3><p class="muted">Masukkan URL Web App Apps Script. URL ini boleh disimpan di browser karena tidak berisi token GitHub.</p><label>Apps Script Web App URL<input id="api-url" placeholder="https://script.google.com/macros/s/.../exec"></label><div class="form-actions"><button class="btn" id="btn-save-settings">Simpan & Test</button><button class="btn-outline" id="btn-test-api">Test API</button></div><div id="settings-result" class="notice"></div></div><div class="card danger-card"><h3>Catatan keamanan</h3><p>GitHub Personal Access Token hanya boleh disimpan di Script Properties Apps Script. Jangan pernah memasukkannya ke frontend, GitHub repository CMS, atau file config.</p></div></section>
+    </main>
 
-    <!-- Generate Result Modal -->
-    <div id="generate-modal" class="modal">
-      <div class="modal-content" style="max-width: 800px; height: 80vh; margin: 10vh auto;">
-        <div class="modal-header">
-          <span style="font-weight: 600; font-size: 1.1rem; color: #0f172a;">Hasil Generate Website</span>
-          <span class="close-btn" id="close-generate">&times;</span>
-        </div>
-        <div style="padding: 20px; overflow-y: auto; flex: 1; background: #f8fafc;">
-          <p style="margin-top:0; color: #475569;">Struktur file virtual telah berhasil dibuat dan siap dipublish ke GitHub (Tahap 4 & 5). Berikut adalah rincian file yang dihasilkan:</p>
-          <pre id="generate-output" style="background: #1e293b; color: #a5b4fc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; font-size: 0.9rem; line-height: 1.5;"></pre>
-          <div style="margin-top: 20px; text-align: right;">
-            <button class="btn" onclick="alert('Fitur Create Repository & Publish akan dilanjutkan di Tahap 4 & 5!')">Lanjut Publish (Tahap 4 & 5)</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="preview-modal" class="modal"><div class="modal-content preview"><div class="modal-header"><strong id="modal-title">Theme Preview</strong><button class="close-btn" id="close-preview">×</button></div><iframe id="preview-frame" title="Theme Preview"></iframe></div></div>
+    <div id="generate-modal" class="modal"><div class="modal-content small"><div class="modal-header"><strong>Generate Website</strong><button class="close-btn" id="close-generate">×</button></div><div id="generate-output" class="generate-output"></div></div></div>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
-
