@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Modern SaaS Landing Page</title>
+    <meta name="description" content="Supercharge your workflow. The ultimate tool for modern teams to collaborate and build faster.">
+    
+    <!-- Google Fonts: Manrope for tech/modern feel, Space Grotesk for technical/numerical display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <div class="brand-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                Nexus
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#features" class="nav-item">Features</a>
+                <a href="#integrations" class="nav-item">Integrations</a>
+                <a href="#pricing" class="nav-item">Pricing</a>
+                <a href="#testimonials" class="nav-item">Customers</a>
+            </nav>
+
+            <div class="nav-actions d-none-mobile">
+                <a href="#" class="nav-item">Log in</a>
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero overflow-hidden">
+            <div class="hero-bg-glow"></div>
+            <div class="container text-center position-relative z-10">
+                <div class="hero-badge reveal">
+                    <span class="badge-new">New</span> Nexus AI Analytics is now live &rarr;
+                </div>
+                <h1 class="hero-title reveal delay-1">
+                    Work at the speed<br>of <span class="text-gradient">thought.</span>
+                </h1>
+                <p class="hero-desc reveal delay-2">
+                    Unify your team's workflow, eliminate silos, and ship products faster. 
+                    Nexus brings all your favorite tools into one unified, intelligent workspace.
+                </p>
+                <div class="hero-actions reveal delay-3">
+                    <div class="email-capture">
+                        <input type="email" placeholder="Enter your work email">
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                    <p class="text-xs text-muted mt-2">Free 14-day trial. No credit card required.</p>
+                </div>
+
+                <!-- Dashboard Dashboard Mockup -->
+                <div class="hero-dashboard reveal delay-4">
+                    <div class="glass-panel mockup-window">
+                        <div class="mockup-header">
+                            <div class="dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="address-bar">app.nexus.co/dashboard</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard Interface" class="mockup-image">
+                    </div>
+                </div>
+
+                <!-- Social Proof Logos -->
+                <div class="trusted-by mt-5 reveal">
+                    <p class="text-xs text-muted mb-3 text-uppercase tracking-wide">Trusted by innovative teams worldwide</p>
+                    <div class="logo-cloud">
+                        <div class="logo-item">Acme Corp</div>
+                        <div class="logo-item">GlobalLink</div>
+                        <div class="logo-item">NexaWorks</div>
+                        <div class="logo-item">Horizon AI</div>
+                        <div class="logo-item">Vertex</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features (Bento Grid) -->
+        <section id="features" class="features section-padding bg-surface">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2>Everything you need. <br>Nothing you don't.</h2>
+                    <p class="section-desc">We've stripped away the complexity so your team can focus on what actually matters: doing great work.</p>
+                </div>
+
+                <div class="bento-grid mt-5">
+                    <!-- Large Feature 1 -->
+                    <div class="bento-card col-span-2 row-span-2 glass-panel reveal">
+                        <div class="bento-content">
+                            <div class="icon-box">⚡</div>
+                            <h3>Real-time Syncing</h3>
+                            <p class="text-muted">Changes propagate instantly across all devices. Never worry about conflicting versions or lost data again.</p>
+                        </div>
+                        <div class="bento-visual visual-sync">
+                            <div class="visual-node"></div>
+                            <div class="visual-line"></div>
+                            <div class="visual-node active"></div>
+                            <div class="visual-line"></div>
+                            <div class="visual-node"></div>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature 1 -->
+                    <div class="bento-card glass-panel reveal delay-1">
+                        <div class="bento-content">
+                            <div class="icon-box">🔒</div>
+                            <h3>Enterprise Security</h3>
+                            <p class="text-muted">SOC2 compliant, end-to-end encryption, and role-based access control.</p>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature 2 -->
+                    <div class="bento-card glass-panel reveal delay-2">
+                        <div class="bento-content">
+                            <div class="icon-box">🤖</div>
+                            <h3>AI Assistance</h3>
+                            <p class="text-muted">Automate repetitive tasks and get intelligent suggestions as you type.</p>
+                        </div>
+                    </div>
+
+                    <!-- Medium Feature -->
+                    <div class="bento-card col-span-2 glass-panel reveal delay-1">
+                        <div class="bento-content">
+                            <div class="icon-box">📊</div>
+                            <h3>Advanced Analytics</h3>
+                            <p class="text-muted">Visualize your team's velocity with beautiful, customizable dashboards.</p>
+                        </div>
+                        <div class="bento-visual visual-chart">
+                            <div class="bar h-40"></div>
+                            <div class="bar h-60"></div>
+                            <div class="bar h-100"></div>
+                            <div class="bar h-80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations (Scrolling Marquee style concept) -->
+        <section id="integrations" class="integrations section-padding overflow-hidden">
+            <div class="container text-center reveal">
+                <span class="badge-pill mb-3">Integrations</span>
+                <h2>Plays nicely with others.</h2>
+                <p class="section-desc">Connect Nexus with the tools your team already uses. Over 100+ native integrations available.</p>
+            </div>
+            
+            <div class="integration-marquee mt-5 reveal delay-1">
+                <div class="marquee-track">
+                    <!-- Duplicate items for infinite scroll effect -->
+                    <div class="integration-pill">Slack</div>
+                    <div class="integration-pill">GitHub</div>
+                    <div class="integration-pill">Jira</div>
+                    <div class="integration-pill">Figma</div>
+                    <div class="integration-pill">Google Drive</div>
+                    <div class="integration-pill">Notion</div>
+                    <div class="integration-pill">Linear</div>
+                    <div class="integration-pill">Zendesk</div>
+                    
+                    <div class="integration-pill">Slack</div>
+                    <div class="integration-pill">GitHub</div>
+                    <div class="integration-pill">Jira</div>
+                    <div class="integration-pill">Figma</div>
+                    <div class="integration-pill">Google Drive</div>
+                    <div class="integration-pill">Notion</div>
+                    <div class="integration-pill">Linear</div>
+                    <div class="integration-pill">Zendesk</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="pricing section-padding bg-surface">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2>Simple, transparent pricing.</h2>
+                    <p class="section-desc">Start for free, then upgrade when your team grows. No hidden fees.</p>
+                    
+                    <div class="billing-toggle mt-4">
+                        <span>Monthly</span>
+                        <div class="toggle-switch active">
+                            <div class="toggle-knob"></div>
+                        </div>
+                        <span>Annually <span class="text-primary text-xs">(Save 20%)</span></span>
+                    </div>
+                </div>
+
+                <div class="pricing-grid mt-5">
+                    <!-- Plan 1 -->
+                    <div class="pricing-card glass-panel reveal">
+                        <div class="plan-header">
+                            <h3>Starter</h3>
+                            <p class="text-muted">For individuals and small teams.</p>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">$</span><span class="amount">0</span><span class="period">/mo</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li>Up to 3 users</li>
+                            <li>Basic analytics</li>
+                            <li>Community support</li>
+                            <li>1GB Storage</li>
+                        </ul>
+                        <button class="btn btn-outline btn-block mt-4">Get Started</button>
+                    </div>
+
+                    <!-- Plan 2 (Highlighted) -->
+                    <div class="pricing-card glass-panel popular reveal delay-1">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Pro</h3>
+                            <p class="text-muted">For growing teams that need more power.</p>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">$</span><span class="amount">29</span><span class="period">/user/mo</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li>Unlimited users</li>
+                            <li>Advanced AI tools</li>
+                            <li>Priority 24/7 support</li>
+                            <li>100GB Storage</li>
+                            <li>Custom integrations</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block mt-4">Start 14-Day Free Trial</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics/CTA -->
+        <section class="final-cta section-padding position-relative overflow-hidden">
+            <div class="cta-bg-glow"></div>
+            <div class="container text-center position-relative z-10 reveal">
+                <h2 class="hero-title">Ready to transform<br>your workflow?</h2>
+                <p class="hero-desc">Join 10,000+ teams already building the future with Nexus.</p>
+                <div class="hero-actions mt-4 justify-center">
+                    <button class="btn btn-primary">Start your free trial</button>
+                    <button class="btn btn-outline">Talk to Sales</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-muted text-sm">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <a href="#" class="brand text-white">
+                        <div class="brand-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        Nexus
+                    </a>
+                    <p class="mt-3">The operating system for modern product teams.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="text-white">Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Integrations</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Changelog</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="text-white">Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="text-white">Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom mt-5">
+                <p>&copy; 2026 Nexus Inc. All rights reserved. Built with Nakama CMS.</p>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nakama CMS Universal</title>
+    <meta name="description" content="Universal Website Generator CMS" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>NAKAMA CMS</h2>
+      <button class="nav-btn active" data-target="dashboard">Dashboard</button>
+      <button class="nav-btn" data-target="customers">Customers</button>
+      <button class="nav-btn" data-target="websites">Websites</button>
+      <button class="nav-btn" data-target="themes">Themes</button>
+    </div>
+
+    <!-- Content -->
+    <div class="main">
+      
+      <!-- Dashboard Page -->
+      <div id="dashboard" class="page active">
+        <h1>Dashboard</h1>
+        <div class="card">
+          <p>Selamat datang di Nakama CMS Universal. Sistem siap digunakan.</p>
+        </div>
+      </div>
+
+      <!-- Customers Page -->
+      <div id="customers" class="page">
+        <h1>Customers</h1>
+        <div class="card">
+          <h3>Tambah Customer Baru</h3>
+          <div class="form-group">
+            <label>Nama Customer</label>
+            <input type="text" id="cust-name" placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Nama Bisnis</label>
+            <input type="text" id="cust-biz" placeholder="Toko Maju Jaya">
+          </div>
+          <button class="btn" id="btn-save-customer">Simpan Customer</button>
+        </div>
+        
+        <div class="card" style="margin-top: 20px;">
+          <h3>Daftar Customer</h3>
+          <div id="customers-table">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Websites Page -->
+      <div id="websites" class="page">
+        <h1>Websites</h1>
+        <div class="card">
+          <h3>Daftar Websites</h3>
+          <div id="websites-table">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Themes Page -->
+      <div id="themes" class="page">
+        <h1>Themes</h1>
+        <p style="margin-bottom: 20px; color: #64748b;">Pilih dari 10 tema yang tersedia untuk website pelanggan Anda.</p>
+        <div id="themes-grid" class="themes-grid">
+          <!-- Themes will be injected here via JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="modal-title">Theme Preview</span>
+          <span class="close-btn" id="close-preview">&times;</span>
+        </div>
+        <div id="preview-container"></div>
+      </div>
+    </div>
+
+    <!-- Generate Result Modal -->
+    <div id="generate-modal" class="modal">
+      <div class="modal-content" style="max-width: 800px; height: 80vh; margin: 10vh auto;">
+        <div class="modal-header">
+          <span style="font-weight: 600; font-size: 1.1rem; color: #0f172a;">Hasil Generate Website</span>
+          <span class="close-btn" id="close-generate">&times;</span>
+        </div>
+        <div style="padding: 20px; overflow-y: auto; flex: 1; background: #f8fafc;">
+          <p style="margin-top:0; color: #475569;">Struktur file virtual telah berhasil dibuat dan siap dipublish ke GitHub (Tahap 4 & 5). Berikut adalah rincian file yang dihasilkan:</p>
+          <pre id="generate-output" style="background: #1e293b; color: #a5b4fc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; font-size: 0.9rem; line-height: 1.5;"></pre>
+          <div style="margin-top: 20px; text-align: right;">
+            <button class="btn" onclick="alert('Fitur Create Repository & Publish akan dilanjutkan di Tahap 4 & 5!')">Lanjut Publish (Tahap 4 & 5)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

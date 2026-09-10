@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR | Luxury Fine Dining</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Minimal Dark Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="#" class="brand">NOIR.</a>
+            
+            <div class="nav-actions">
+                <a href="#reservations" class="btn btn-outline">Reservations</a>
+            </div>
+        </div>
+
+        <!-- Fullscreen Menu -->
+        <div class="nav-overlay">
+            <div class="overlay-content">
+                <nav class="overlay-links">
+                    <a href="#experience">The Experience</a>
+                    <a href="#menu">Tasting Menu</a>
+                    <a href="#chef">The Chef</a>
+                    <a href="#private">Private Dining</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Dramatic Lighting -->
+        <section class="hero">
+            <div class="hero-bg reveal-scale">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Fine dining plating">
+            </div>
+            <div class="hero-vignette"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="hero-kicker text-gold">Michelin Starred</span>
+                    <h1 class="hero-title">Culinary art<br>in the shadows.</h1>
+                    <a href="#experience" class="scroll-link mt-xl">
+                        <span>Discover</span>
+                        <div class="scroll-line"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Experience (Concept) -->
+        <section id="experience" class="experience section-padding bg-black text-white">
+            <div class="container">
+                <div class="split-layout">
+                    <div class="split-visual reveal">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" alt="Dark restaurant interior" class="dramatic-img">
+                    </div>
+                    <div class="split-text reveal reveal-delay">
+                        <span class="kicker text-gold">The Concept</span>
+                        <h2 class="section-title">An awakening of the senses.</h2>
+                        <p class="section-desc mt-md">NOIR is an exploration of contrast. We strip away the visual noise of the outside world to focus entirely on texture, aroma, and profound flavor profiles. In our dimly lit dining room, every dish is illuminated like a masterpiece.</p>
+                        <p class="section-desc mt-sm">A 12-course immersive tasting journey that redefines modern European gastronomy through the lens of seasonal, hyper-local ingredients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Menu Highlights -->
+        <section id="menu" class="menu section-padding bg-surface text-white">
+            <div class="container text-center reveal">
+                <span class="kicker text-gold">Tasting Menu</span>
+                <h2 class="section-title">Symphony of flavors.</h2>
+            </div>
+
+            <div class="container mt-xl">
+                <div class="menu-gallery">
+                    <!-- Dish 1 -->
+                    <div class="dish-card reveal">
+                        <div class="dish-img">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2070&auto=format&fit=crop" alt="Wagyu Beef">
+                        </div>
+                        <div class="dish-info">
+                            <h3>A5 Wagyu & Truffle</h3>
+                            <p>Smoked bone marrow emulsion, fermented black garlic, wild foraged mushrooms.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dish 2 -->
+                    <div class="dish-card reveal reveal-delay">
+                        <div class="dish-img">
+                            <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=1968&auto=format&fit=crop" alt="Scallop Crudo">
+                        </div>
+                        <div class="dish-info">
+                            <h3>Hokkaido Scallop</h3>
+                            <p>Yuzu kosho, sea urchin foam, finger lime, white soy and kelp oil.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dish 3 -->
+                    <div class="dish-card reveal reveal-delay-2">
+                        <div class="dish-img">
+                            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=2070&auto=format&fit=crop" alt="Chocolate dessert">
+                        </div>
+                        <div class="dish-info">
+                            <h3>Textures of Cacao</h3>
+                            <p>72% dark chocolate marquise, espresso soil, smoked vanilla bean ice cream.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-xl reveal">
+                    <a href="#" class="btn btn-outline">View Full Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Chef -->
+        <section id="chef" class="chef section-padding bg-black text-white">
+            <div class="container">
+                <div class="split-layout reverse">
+                    <div class="split-visual reveal">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=1968&auto=format&fit=crop" alt="Executive Chef" class="dramatic-img grayscale">
+                    </div>
+                    <div class="split-text reveal reveal-delay">
+                        <span class="kicker text-gold">Executive Chef</span>
+                        <h2 class="section-title">Julian Vance.</h2>
+                        <p class="section-desc mt-md">With over two decades in the kitchens of Paris, Tokyo, and New York, Chef Vance brings a relentless pursuit of perfection to NOIR. His philosophy is rooted in the belief that luxury is found in the purity of ingredients, manipulated with exact precision.</p>
+                        <img src="https://images.unsplash.com/photo-1580196969807-cc6de06c05be?q=80&w=500&auto=format&fit=crop" alt="Chef Signature" class="signature mt-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservations -->
+        <section id="reservations" class="reservations section-padding bg-surface text-white">
+            <div class="container reservation-container reveal">
+                <div class="reservation-box">
+                    <div class="text-center mb-lg">
+                        <span class="kicker text-gold">Join Us</span>
+                        <h2 class="section-title">Reserve a table.</h2>
+                        <p class="section-desc mx-auto mt-sm">Reservations open 30 days in advance. For parties larger than 4 or private dining inquiries, please contact us directly.</p>
+                    </div>
+                    
+                    <form class="reservation-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Date</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Time</label>
+                                <select required>
+                                    <option value="" disabled selected>Select Time</option>
+                                    <option value="1800">18:00</option>
+                                    <option value="1900">19:00</option>
+                                    <option value="2000">20:00</option>
+                                    <option value="2100">21:00</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Party Size</label>
+                                <select required>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2" selected>2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mt-lg">
+                            <button type="submit" class="btn btn-solid-gold">Find Table</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white border-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="brand text-white">NOIR.</a>
+                    <p class="mt-md text-gray">An immersive fine dining<br>experience.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="text-gold">Location</h4>
+                    <p>450 High Street<br>Metropolis, NY 10012</p>
+                    <a href="#" class="map-link mt-sm">View Map</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="text-gold">Hours</h4>
+                    <p>Wednesday - Sunday</p>
+                    <p>Dinner: 18:00 - 23:00</p>
+                    <p class="text-gray mt-sm">Closed Mon & Tue</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="text-gold">Contact</h4>
+                    <p>+1 (212) 555-0199</p>
+                    <p>reservations@noirdining.com</p>
+                    <div class="social-links mt-sm">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom mt-xl">
+                <p class="text-gray">&copy; 2026 NOIR Restaurant. All rights reserved.</p>
+                <div class="legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

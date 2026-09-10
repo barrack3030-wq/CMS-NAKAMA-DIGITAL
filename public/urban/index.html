@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN | Modern Lifestyle Hotel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="brand">URBAN.</a>
+            
+            <nav class="nav-links">
+                <a href="#concept" class="nav-link">The Concept</a>
+                <a href="#rooms" class="nav-link">Crash Pads</a>
+                <a href="#social" class="nav-link">Social Spaces</a>
+                <a href="#location" class="nav-link">Neighborhood</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#book" class="btn btn-primary">Book a Room</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-media">
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop" alt="Urban Hotel Design" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <h1 class="hero-title">PLUG INTO<br>THE <span class="text-accent">CITY.</span></h1>
+                    <p class="hero-desc">More than a hotel. A hyper-connected lifestyle hub in the epicenter of downtown. Work, play, and crash in uncompromising style.</p>
+                </div>
+            </div>
+
+            <!-- Brutalist Booking Bar -->
+            <div class="booking-bar-wrapper reveal reveal-delay">
+                <div class="container">
+                    <form class="booking-bar">
+                        <div class="input-block">
+                            <label>Check In</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-block">
+                            <label>Check Out</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-block">
+                            <label>Guests</label>
+                            <select required>
+                                <option value="1">01 Person</option>
+                                <option value="2" selected>02 People</option>
+                                <option value="3">03 People</option>
+                                <option value="4">Party (4+)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-accent btn-submit">Find Space</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infinite Marquee -->
+        <div class="marquee-section bg-accent text-black">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span>NO CURFEWS.</span>
+                    <span class="star">★</span>
+                    <span>FAST WIFI.</span>
+                    <span class="star">★</span>
+                    <span>ROOFTOP BEATS.</span>
+                    <span class="star">★</span>
+                    <span>24/7 COFFEE.</span>
+                    <span class="star">★</span>
+                    <span>SMART ROOMS.</span>
+                    <span class="star">★</span>
+                    <span>NO CURFEWS.</span>
+                    <span class="star">★</span>
+                    <span>FAST WIFI.</span>
+                    <span class="star">★</span>
+                    <span>ROOFTOP BEATS.</span>
+                    <span class="star">★</span>
+                    <span>24/7 COFFEE.</span>
+                    <span class="star">★</span>
+                    <span>SMART ROOMS.</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concept Section -->
+        <section id="concept" class="concept section-padding bg-black text-white">
+            <div class="container concept-container">
+                <div class="concept-text reveal">
+                    <h2 class="section-title">SLEEP IS <br>JUST THE <br>BEGINNING.</h2>
+                    <p class="section-desc mt-md">Forget stuffy lobbies and generic room service. URBAN is designed for the modern nomad. We replaced the traditional front desk with a 24/7 craft coffee bar, upgraded our Wi-Fi to fiber optic speeds, and turned our rooftop into the neighborhood's favorite destination.</p>
+                    <a href="#social" class="btn btn-outline mt-lg">Explore Our Spaces</a>
+                </div>
+                <div class="concept-visuals">
+                    <div class="img-box img-1 reveal reveal-delay">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Co-working space" loading="lazy">
+                    </div>
+                    <div class="img-box img-2 reveal reveal-delay-2">
+                        <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=1974&auto=format&fit=crop" alt="Lobby Bar" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rooms (Crash Pads) -->
+        <section id="rooms" class="rooms section-padding bg-light text-black">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <h2 class="section-title">THE CRASH PADS.</h2>
+                    <p class="section-desc text-right hidden-mobile">Smart, soundproofed, and<br>designed for maximum recovery.</p>
+                </div>
+
+                <div class="room-grid mt-xl">
+                    <!-- Room 1 -->
+                    <article class="room-card reveal">
+                        <div class="room-img">
+                            <img src="https://images.unsplash.com/photo-1536270487847-1901a05afdd5?q=80&w=2071&auto=format&fit=crop" alt="The Solo Pod" loading="lazy">
+                            <div class="room-tag">Compact</div>
+                        </div>
+                        <div class="room-content">
+                            <div class="room-header">
+                                <h3>The Solo</h3>
+                                <span class="room-price">$120/nt</span>
+                            </div>
+                            <p class="room-specs">15 SQM // XL Twin // Rain Shower</p>
+                            <p class="room-desc mt-sm">Everything you need, nothing you don't. Hyper-efficient layout with wall-to-wall windows and blackout blinds.</p>
+                            <a href="#" class="btn btn-block mt-md">Select Room</a>
+                        </div>
+                    </article>
+
+                    <!-- Room 2 -->
+                    <article class="room-card reveal reveal-delay">
+                        <div class="room-img">
+                            <img src="https://images.unsplash.com/photo-1598928506311-c55f74427e0a?q=80&w=2070&auto=format&fit=crop" alt="The Loft" loading="lazy">
+                            <div class="room-tag accent-tag">Popular</div>
+                        </div>
+                        <div class="room-content">
+                            <div class="room-header">
+                                <h3>The Loft</h3>
+                                <span class="room-price">$210/nt</span>
+                            </div>
+                            <p class="room-specs">30 SQM // King Bed // City View</p>
+                            <p class="room-desc mt-sm">Industrial concrete ceilings, exposed pipes, and a plush king bed. Includes a dedicated workspace and lounge area.</p>
+                            <a href="#" class="btn btn-block mt-md">Select Room</a>
+                        </div>
+                    </article>
+
+                    <!-- Room 3 -->
+                    <article class="room-card reveal reveal-delay-2">
+                        <div class="room-img">
+                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2070&auto=format&fit=crop" alt="The Studio" loading="lazy">
+                            <div class="room-tag">Suite</div>
+                        </div>
+                        <div class="room-content">
+                            <div class="room-header">
+                                <h3>The Studio</h3>
+                                <span class="room-price">$350/nt</span>
+                            </div>
+                            <p class="room-specs">55 SQM // Super King // Vinyl Player</p>
+                            <p class="room-desc mt-sm">Corner suite with panoramic skyline views, a freestanding tub, curated vinyl collection, and fully stocked wet bar.</p>
+                            <a href="#" class="btn btn-block mt-md">Select Room</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Spaces -->
+        <section id="social" class="social section-padding bg-black text-white">
+            <div class="container">
+                <h2 class="section-title text-center reveal">SOCIAL BY DESIGN.</h2>
+                
+                <div class="social-bento mt-xl">
+                    <div class="bento-item bento-large reveal">
+                        <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=1974&auto=format&fit=crop" alt="Rooftop Bar" loading="lazy">
+                        <div class="bento-content">
+                            <h3>Level 12 Rooftop</h3>
+                            <p>Craft cocktails, local DJs, and panoramic city views.</p>
+                        </div>
+                    </div>
+                    <div class="bento-item reveal reveal-delay">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop" alt="Coffee Bar" loading="lazy">
+                        <div class="bento-content">
+                            <h3>Grind Cafe</h3>
+                            <p>Artisan coffee & co-working.</p>
+                        </div>
+                    </div>
+                    <div class="bento-item reveal reveal-delay-2">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" alt="Gym" loading="lazy">
+                        <div class="bento-content">
+                            <h3>The Iron Space</h3>
+                            <p>24/7 underground fitness center.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location / Map Vibe -->
+        <section id="location" class="location bg-light text-black">
+            <div class="loc-split">
+                <div class="loc-content section-padding reveal">
+                    <h2 class="section-title">THE<br>EPICENTER.</h2>
+                    <p class="section-desc mt-md">Located in the vibrant Arts District. Steps away from the best galleries, underground clubs, and street food the city has to offer.</p>
+                    
+                    <ul class="loc-list mt-lg">
+                        <li>
+                            <span class="dist">02 MIN</span>
+                            <span class="place">Arts District Subway</span>
+                        </li>
+                        <li>
+                            <span class="dist">05 MIN</span>
+                            <span class="place">Contemporary Museum</span>
+                        </li>
+                        <li>
+                            <span class="dist">10 MIN</span>
+                            <span class="place">Financial Center</span>
+                        </li>
+                        <li>
+                            <span class="dist">25 MIN</span>
+                            <span class="place">International Airport</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="loc-visual">
+                    <!-- Stylized Map Placeholder -->
+                    <div class="map-placeholder">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" alt="City Map" loading="lazy">
+                        <div class="map-pin">
+                            <div class="pin-dot"></div>
+                            URBAN
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white">
+        <div class="marquee-section border-bottom">
+            <div class="marquee">
+                <div class="marquee-content large-marquee">
+                    <span>SEE YOU SOON.</span>
+                    <span class="star">★</span>
+                    <span>SEE YOU SOON.</span>
+                    <span class="star">★</span>
+                    <span>SEE YOU SOON.</span>
+                    <span class="star">★</span>
+                    <span>SEE YOU SOON.</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand">URBAN.</a>
+                    <p class="mt-md text-gray">The anti-hotel for the modern traveler. Radically connected.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>STAY</h4>
+                    <a href="#">The Rooms</a>
+                    <a href="#">Offers</a>
+                    <a href="#">Group Bookings</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>PLAY</h4>
+                    <a href="#">Events</a>
+                    <a href="#">Food & Drink</a>
+                    <a href="#">Neighborhood Guide</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>CONNECT</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">Spotify Playlists</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 URBAN Lifestyle Hotels.</p>
+                <div class="legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

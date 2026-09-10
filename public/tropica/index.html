@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tropica | Island Resort & Spa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="brand-icon"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Tropica
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">Resort</a>
+                <a href="#villas" class="nav-link">Villas</a>
+                <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#dining" class="nav-link">Dining</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#book" class="btn btn-primary">Book Now</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop" alt="Tropical Resort Beach" loading="lazy">
+            </div>
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="hero-kicker">Welcome to Paradise</span>
+                    <h1 class="hero-title">Discover your<br>island sanctuary.</h1>
+                    <p class="hero-desc">Experience barefoot luxury on pristine white sands surrounded by the crystal-clear azure waters of the archipelago.</p>
+                </div>
+            </div>
+            
+            <!-- Floating Booking Bar -->
+            <div class="container booking-bar-container reveal reveal-delay">
+                <form class="booking-bar">
+                    <div class="input-group">
+                        <label>Arrival</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Departure</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Guests</label>
+                        <select required>
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-accent btn-large">Check Rates</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- About / Intro Section -->
+        <section id="about" class="intro section-padding bg-sand">
+            <div class="container intro-container">
+                <div class="intro-visual reveal">
+                    <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=2036&auto=format&fit=crop" alt="Resort Pool" loading="lazy" class="rounded-img image-offset">
+                    <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop" alt="Tropical Leaf" loading="lazy" class="rounded-img floating-img">
+                </div>
+                <div class="intro-content reveal reveal-delay">
+                    <span class="section-kicker">The Tropica Experience</span>
+                    <h2 class="section-title">Where nature meets modern luxury.</h2>
+                    <p class="section-desc mt-md">Hidden among lush tropical gardens and fronting a private lagoon, Tropica offers an escape from the ordinary. Our resort is designed to harmonize with its natural surroundings, utilizing sustainable materials while providing uncompromising comfort.</p>
+                    <p class="mt-md text-muted">Whether you're seeking a romantic getaway, a family adventure, or simply a place to disconnect and recharge, our dedicated island hosts are here to curate your perfect stay.</p>
+                    <a href="#villas" class="btn btn-outline mt-lg">Explore Accommodations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Villas & Suites -->
+        <section id="villas" class="villas section-padding bg-white">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-kicker">Rest & Recharge</span>
+                    <h2 class="section-title">Villas & Suites</h2>
+                    <p class="section-desc mx-auto mt-sm">Wake up to the sound of gentle waves and the rustling of palm fronds in our thoughtfully designed living spaces.</p>
+                </div>
+
+                <div class="villa-grid mt-xl">
+                    <!-- Villa 1 -->
+                    <div class="villa-card reveal">
+                        <div class="villa-img">
+                            <img src="https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?q=80&w=1974&auto=format&fit=crop" alt="Oceanfront Villa" loading="lazy">
+                            <div class="villa-badge">Popular</div>
+                        </div>
+                        <div class="villa-content">
+                            <h3>Oceanfront Villa</h3>
+                            <ul class="villa-features">
+                                <li><span>Size:</span> 120 sqm</li>
+                                <li><span>View:</span> Direct Ocean</li>
+                                <li><span>Bed:</span> King Size</li>
+                            </ul>
+                            <p class="villa-desc">Step directly from your private terrace onto the soft white sand. Features an outdoor rain shower and private plunge pool.</p>
+                            <div class="villa-footer">
+                                <span class="price">From $450 / night</span>
+                                <a href="#" class="btn btn-text">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Villa 2 -->
+                    <div class="villa-card reveal reveal-delay">
+                        <div class="villa-img">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop" alt="Jungle Canopy Suite" loading="lazy">
+                        </div>
+                        <div class="villa-content">
+                            <h3>Jungle Canopy Suite</h3>
+                            <ul class="villa-features">
+                                <li><span>Size:</span> 95 sqm</li>
+                                <li><span>View:</span> Tropical Garden</li>
+                                <li><span>Bed:</span> King Size</li>
+                            </ul>
+                            <p class="villa-desc">Elevated among the treetops for ultimate privacy. Enjoy panoramic jungle views from your wraparound balcony and open-air bath.</p>
+                            <div class="villa-footer">
+                                <span class="price">From $320 / night</span>
+                                <a href="#" class="btn btn-text">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiences (Full Width Banner) -->
+        <section id="experiences" class="experiences">
+            <div class="experience-split">
+                <div class="exp-content bg-jungle text-white reveal">
+                    <span class="section-kicker text-sand">Island Activities</span>
+                    <h2 class="section-title">Curate your perfect day.</h2>
+                    <p class="section-desc mt-md text-sand-light">From diving in vibrant coral reefs to rejuvenating spa treatments using indigenous botanicals, Tropica offers a diverse array of experiences.</p>
+                    
+                    <ul class="exp-list mt-lg">
+                        <li>
+                            <span class="exp-icon">🌊</span>
+                            <div>
+                                <h4>Water Sports & Diving</h4>
+                                <p>Explore our house reef or paddleboard at sunset.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="exp-icon">🌿</span>
+                            <div>
+                                <h4>The Lotus Spa</h4>
+                                <p>Holistic wellness rituals and deep tissue massages.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="exp-icon">⛵</span>
+                            <div>
+                                <h4>Sunset Sailing</h4>
+                                <p>Private catamaran cruises with champagne.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="exp-visual">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop" alt="Scuba Diving" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Section -->
+        <section id="dining" class="dining section-padding bg-sand">
+            <div class="container text-center reveal">
+                <span class="section-kicker">Gastronomy</span>
+                <h2 class="section-title">A taste of the tropics.</h2>
+            </div>
+            
+            <div class="container mt-xl">
+                <div class="dining-showcase reveal">
+                    <div class="dining-img">
+                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="Beachfront Dining" loading="lazy">
+                    </div>
+                    <div class="dining-info bg-white">
+                        <h3>Coral Restaurant</h3>
+                        <p class="mt-sm text-muted">Our signature beachfront restaurant offering a fusion of local island flavors and international culinary techniques. Featuring fresh, daily-caught seafood and organic produce from our resort gardens.</p>
+                        <div class="dining-hours mt-md">
+                            <p><strong>Breakfast:</strong> 7:00 AM - 10:30 AM</p>
+                            <p><strong>Dinner:</strong> 6:30 PM - 10:00 PM</p>
+                        </div>
+                        <a href="#" class="btn btn-outline mt-lg">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram / Social Gallery -->
+        <section class="social-gallery section-padding bg-white">
+            <div class="container text-center reveal">
+                <h2 class="section-title">#TropicaResort</h2>
+                <p class="section-desc mx-auto mt-sm">Share your island moments with us.</p>
+            </div>
+            <div class="gallery-row mt-lg reveal reveal-delay">
+                <img src="https://images.unsplash.com/photo-1537996191371-537717c34bcd?q=80&w=1974&auto=format&fit=crop" alt="Social 1" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=2067&auto=format&fit=crop" alt="Social 2" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop" alt="Social 3" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1968&auto=format&fit=crop" alt="Social 4" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-jungle text-sand">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand text-white">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="brand-icon"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Tropica
+                    </a>
+                    <p class="mt-md text-sand-light">Your private island sanctuary. Escape the ordinary and embrace the barefoot luxury lifestyle.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Discover</h4>
+                    <a href="#villas">Villas & Suites</a>
+                    <a href="#dining">Restaurants & Bars</a>
+                    <a href="#experiences">Spa & Wellness</a>
+                    <a href="#">Offers</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Getting Here</a>
+                    <a href="#">Resort Map</a>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Island News</h4>
+                    <p class="mb-sm text-sand-light">Subscribe for exclusive offers and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tropica Island Resort. All rights reserved.</p>
+                <div class="legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

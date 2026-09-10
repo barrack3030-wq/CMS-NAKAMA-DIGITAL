@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY | Premium Car Rental</title>
+    <meta name="description" content="Experience the thrill of driving. Premium and luxury car rentals for the modern traveler.">
+    
+    <!-- Google Fonts: Outfit for striking headings, Inter for clean UI text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12L18 20H15L19 12L15 4H18L22 12Z" fill="currentColor"/>
+                    <path d="M14 12L10 20H7L11 12L7 4H10L14 12Z" fill="currentColor"/>
+                    <path d="M6 12L2 20H0L4 12L0 4H2L6 12Z" fill="currentColor"/>
+                </svg>
+                VELOCITY
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links">
+                <a href="#fleet" class="nav-item">Our Fleet</a>
+                <a href="#benefits" class="nav-item">Why Us</a>
+                <a href="#contact" class="nav-item">Contact</a>
+                <a href="#fleet" class="btn btn-primary">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop" alt="Luxury Sports Car" class="hero-bg">
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="container hero-content">
+                <div class="hero-text-box reveal">
+                    <h1 class="hero-title">
+                        Drive the<br>
+                        <span class="text-blue">Extraordinary.</span>
+                    </h1>
+                    <p class="hero-desc">Unleash the ultimate driving experience. Premium, sports, and luxury vehicles available for rent at your fingertips.</p>
+                </div>
+
+                <!-- Floating Booking Widget -->
+                <div class="booking-widget reveal delay-1">
+                    <div class="widget-row">
+                        <div class="input-group">
+                            <label>Pick-up Location</label>
+                            <input type="text" placeholder="City, Airport, or Station">
+                        </div>
+                        <div class="input-group">
+                            <label>Pick-up Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="input-group">
+                            <label>Return Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="input-group btn-group">
+                            <button class="btn btn-primary btn-block">Search Vehicles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Section -->
+        <section id="fleet" class="fleet section-padding bg-gray text-dark">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <div>
+                        <span class="section-tag">Our Collection</span>
+                        <h2>The Premium Fleet</h2>
+                    </div>
+                    <div class="fleet-filters d-none-mobile">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Sports</button>
+                        <button class="filter-btn">Luxury Sedan</button>
+                        <button class="filter-btn">Premium SUV</button>
+                    </div>
+                </div>
+
+                <div class="fleet-grid">
+                    <!-- Car 1 -->
+                    <article class="car-card reveal">
+                        <div class="car-image">
+                            <img src="https://images.unsplash.com/photo-1617814076367-b7c1064ce52a?q=80&w=2070&auto=format&fit=crop" alt="Porsche 911">
+                            <span class="car-badge">Sports</span>
+                        </div>
+                        <div class="car-details">
+                            <h3>Porsche 911 Carrera</h3>
+                            <div class="car-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏎️</span> 500 HP
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚙️</span> Auto
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">💺</span> 2 Seats
+                                </div>
+                            </div>
+                            <div class="car-footer">
+                                <div class="price">
+                                    <strong>$450</strong><span>/day</span>
+                                </div>
+                                <a href="#" class="btn btn-outline">Rent Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Car 2 -->
+                    <article class="car-card reveal delay-1">
+                        <div class="car-image">
+                            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2070&auto=format&fit=crop" alt="Range Rover">
+                            <span class="car-badge">Premium SUV</span>
+                        </div>
+                        <div class="car-details">
+                            <h3>Range Rover Velar</h3>
+                            <div class="car-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🛣️</span> AWD
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚙️</span> Auto
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">💺</span> 5 Seats
+                                </div>
+                            </div>
+                            <div class="car-footer">
+                                <div class="price">
+                                    <strong>$320</strong><span>/day</span>
+                                </div>
+                                <a href="#" class="btn btn-outline">Rent Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Car 3 -->
+                    <article class="car-card reveal delay-2">
+                        <div class="car-image">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" alt="BMW M4">
+                            <span class="car-badge">Luxury Coupe</span>
+                        </div>
+                        <div class="car-details">
+                            <h3>BMW M4 Competition</h3>
+                            <div class="car-specs">
+                                <div class="spec">
+                                    <span class="spec-icon">🏎️</span> 503 HP
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">⚙️</span> Auto
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-icon">💺</span> 4 Seats
+                                </div>
+                            </div>
+                            <div class="car-footer">
+                                <div class="price">
+                                    <strong>$380</strong><span>/day</span>
+                                </div>
+                                <a href="#" class="btn btn-outline">Rent Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="benefits" class="features section-padding bg-black text-white">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-text reveal">
+                        <span class="section-tag text-blue">The Velocity Standard</span>
+                        <h2>Why choose us for your next journey?</h2>
+                        <p class="lead-text">We don't just rent cars; we provide a seamless, premium mobility experience tailored to your exacting standards.</p>
+                        <a href="#fleet" class="btn-link mt-2">View our fleet <span class="arrow">&rarr;</span></a>
+                    </div>
+                    
+                    <div class="feature-items">
+                        <div class="feat-item reveal delay-1">
+                            <div class="feat-icon">🛡️</div>
+                            <div class="feat-content">
+                                <h3>Comprehensive Coverage</h3>
+                                <p>Drive with peace of mind. All our rentals include premium insurance coverage with zero deductible options.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item reveal delay-2">
+                            <div class="feat-icon">📍</div>
+                            <div class="feat-content">
+                                <h3>Delivery to Your Door</h3>
+                                <p>Skip the counter. We deliver your vehicle directly to your hotel, home, or private terminal.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item reveal delay-3">
+                            <div class="feat-icon">💬</div>
+                            <div class="feat-content">
+                                <h3>24/7 Concierge</h3>
+                                <p>Our dedicated support team is available around the clock to assist with your itinerary or roadside needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-banner section-padding text-center">
+            <div class="cta-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2183&auto=format&fit=crop');"></div>
+            <div class="cta-banner-overlay"></div>
+            <div class="container cta-banner-content reveal">
+                <h2>Ready to hit the road?</h2>
+                <p>Join thousands of satisfied drivers. Download the Velocity app for seamless booking and unlocking.</p>
+                <div class="app-buttons">
+                    <a href="#" class="btn btn-outline-white">App Store</a>
+                    <a href="#" class="btn btn-outline-white">Google Play</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer bg-dark-gray text-white">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="brand">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12L18 20H15L19 12L15 4H18L22 12Z" fill="currentColor"/>
+                            <path d="M14 12L10 20H7L11 12L7 4H10L14 12Z" fill="currentColor"/>
+                            <path d="M6 12L2 20H0L4 12L0 4H2L6 12Z" fill="currentColor"/>
+                        </svg>
+                        VELOCITY
+                    </a>
+                    <p class="footer-desc">Premium vehicle rentals for those who demand performance and luxury.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Vehicles</h4>
+                    <a href="#">Sports Cars</a>
+                    <a href="#">Luxury Sedans</a>
+                    <a href="#">Premium SUVs</a>
+                    <a href="#">Electric Fleet</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact Support</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>support@velocity.rent</p>
+                    <p>+1 (800) 123-4567</p>
+                    <div class="social-links mt-2">
+                        <a href="#">IG</a>
+                        <a href="#">TW</a>
+                        <a href="#">IN</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Velocity Car Rental. Built with Nakama CMS.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

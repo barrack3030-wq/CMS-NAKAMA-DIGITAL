@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WANDER | Luxury Travel & Experiences</title>
+    <meta name="description" content="Go beyond ordinary. Discover bespoke travel experiences and breathtaking destinations.">
+    
+    <!-- Google Fonts: Cormorant for elegant editorial serif, Montserrat for modern sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="menu-text">MENU</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            
+            <a href="#" class="brand">
+                WANDER.
+            </a>
+
+            <div class="nav-right">
+                <a href="#inquire" class="btn btn-outline-white">Plan Your Trip</a>
+            </div>
+        </div>
+
+        <!-- Fullscreen Overlay Menu -->
+        <div class="menu-overlay">
+            <div class="menu-overlay-bg"></div>
+            <div class="menu-content">
+                <nav class="nav-links">
+                    <a href="#destinations" class="nav-item"><span>01</span> Destinations</a>
+                    <a href="#experiences" class="nav-item"><span>02</span> Experiences</a>
+                    <a href="#packages" class="nav-item"><span>03</span> Curated Journeys</a>
+                    <a href="#journal" class="nav-item"><span>04</span> Travel Journal</a>
+                    <a href="#contact" class="nav-item"><span>05</span> Contact</a>
+                </nav>
+                <div class="menu-info">
+                    <p class="menu-label">Contact Us</p>
+                    <p>concierge@wander.luxury</p>
+                    <p>+1 800 555 0199</p>
+                    <br>
+                    <p class="menu-label">Follow</p>
+                    <div class="menu-social">
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image-wrapper">
+                <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text-box reveal">
+                    <h1 class="hero-title">
+                        Go Beyond<br>
+                        <i>Ordinary.</i>
+                    </h1>
+                </div>
+                
+                <div class="hero-bottom reveal delay-1">
+                    <p class="hero-desc">Bespoke itineraries for the modern explorer.</p>
+                    <a href="#destinations" class="explore-scroll">
+                        <span class="explore-text">Explore Destinations</span>
+                        <div class="scroll-line"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section id="about" class="intro section-padding bg-dark text-white">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-text reveal">
+                        <span class="section-subtitle">Our Philosophy</span>
+                        <h2>We curate moments that take your breath away, designing journeys as unique as you are.</h2>
+                    </div>
+                    <div class="intro-desc reveal delay-1">
+                        <p>At Wander, we believe travel is not just about the places you go, but how those places change you. Our team of seasoned globetrotters handcrafts exclusive, immersive experiences that transcend the typical tourist path.</p>
+                        <p>From private villas on the Amalfi Coast to bespoke safaris in the Serengeti, your extraordinary escape awaits.</p>
+                        <a href="#contact" class="btn-link">Discover the Wander Difference <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Destinations -->
+        <section id="destinations" class="destinations section-padding bg-light">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">Curated Locales</span>
+                    <h2>Featured Destinations</h2>
+                </div>
+            </div>
+            
+            <div class="destinations-slider reveal delay-1">
+                <div class="dest-track">
+                    <a href="#" class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop" alt="Paris, France">
+                        <div class="dest-overlay">
+                            <h3>Paris</h3>
+                            <span class="dest-country">France</span>
+                        </div>
+                    </a>
+                    <a href="#" class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f40889ba6233?q=80&w=2067&auto=format&fit=crop" alt="Cinque Terre, Italy">
+                        <div class="dest-overlay">
+                            <h3>Amalfi Coast</h3>
+                            <span class="dest-country">Italy</span>
+                        </div>
+                    </a>
+                    <a href="#" class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2036&auto=format&fit=crop" alt="Kyoto, Japan">
+                        <div class="dest-overlay">
+                            <h3>Kyoto</h3>
+                            <span class="dest-country">Japan</span>
+                        </div>
+                    </a>
+                    <a href="#" class="dest-card">
+                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop" alt="Santorini, Greece">
+                        <div class="dest-overlay">
+                            <h3>Santorini</h3>
+                            <span class="dest-country">Greece</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiences (Editorial Overlap) -->
+        <section id="experiences" class="experiences bg-white">
+            <div class="exp-row">
+                <div class="exp-image reveal">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop" alt="Luxury Safari">
+                </div>
+                <div class="exp-content reveal delay-1">
+                    <span class="section-subtitle">Signature Experience</span>
+                    <h2>Wilderness & Elegance</h2>
+                    <p>Experience the raw beauty of the African savannah without sacrificing luxury. Our exclusive lodge partnerships provide front-row seats to nature's greatest spectacles, complete with private guides and sunset safaris.</p>
+                    <a href="#" class="btn btn-outline">Explore Safaris</a>
+                </div>
+            </div>
+            
+            <div class="exp-row reverse">
+                <div class="exp-image reveal">
+                    <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=2070&auto=format&fit=crop" alt="Yacht sailing">
+                </div>
+                <div class="exp-content reveal delay-1">
+                    <span class="section-subtitle">Signature Experience</span>
+                    <h2>Private Seas</h2>
+                    <p>Chart your own course aboard our fleet of luxury chartered yachts. From the Mediterranean to the Caribbean, awaken to a new horizon every morning with a dedicated crew catering to your every whim.</p>
+                    <a href="#" class="btn btn-outline">Explore Charters</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curated Packages -->
+        <section id="packages" class="packages section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-subtitle">The Collection</span>
+                    <h2>Curated Journeys</h2>
+                    <p class="header-desc">Exclusive itineraries designed for discerning travelers.</p>
+                </div>
+
+                <div class="packages-grid">
+                    <article class="package-card reveal">
+                        <div class="pkg-image">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop" alt="Maldives">
+                        </div>
+                        <div class="pkg-content">
+                            <span class="pkg-duration">10 Days / 9 Nights</span>
+                            <h3>The Maldivian Retreat</h3>
+                            <p class="pkg-price">From $12,500 pp</p>
+                        </div>
+                    </article>
+                    
+                    <article class="package-card reveal delay-1">
+                        <div class="pkg-image">
+                            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop" alt="Paris">
+                        </div>
+                        <div class="pkg-content">
+                            <span class="pkg-duration">7 Days / 6 Nights</span>
+                            <h3>Parisian Elegance</h3>
+                            <p class="pkg-price">From $8,200 pp</p>
+                        </div>
+                    </article>
+                    
+                    <article class="package-card reveal delay-2">
+                        <div class="pkg-image">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" alt="Swiss Alps">
+                        </div>
+                        <div class="pkg-content">
+                            <span class="pkg-duration">8 Days / 7 Nights</span>
+                            <h3>Alpine Escape</h3>
+                            <p class="pkg-price">From $10,800 pp</p>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="text-center mt-4 reveal delay-3">
+                    <a href="#" class="btn btn-outline">View All Journeys</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial (Large typography) -->
+        <section class="testimonial bg-dark text-white section-padding">
+            <div class="container text-center reveal">
+                <span class="quote-icon">"</span>
+                <blockquote class="large-quote">
+                    "Wander orchestrated a honeymoon that defied imagination. Every detail was flawless, every sunset perfectly timed. It wasn't just a trip; it was a masterpiece."
+                </blockquote>
+                <div class="quote-author">
+                    <strong>Elena & James M.</strong>
+                    <span>Amalfi Coast Journey</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Journal -->
+        <section id="journal" class="journal section-padding bg-white">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <div>
+                        <span class="section-subtitle">Editorial</span>
+                        <h2>Travel Journal</h2>
+                    </div>
+                    <a href="#" class="btn-link d-none-mobile">Read the Journal <span class="arrow">&rarr;</span></a>
+                </div>
+
+                <div class="journal-grid">
+                    <article class="journal-item reveal">
+                        <div class="journal-img overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop" alt="Boat on lake" class="zoom-img">
+                        </div>
+                        <div class="journal-meta">
+                            <span class="journal-category">Inspiration</span>
+                            <span class="journal-date">Oct 12, 2026</span>
+                        </div>
+                        <h3><a href="#">The Art of Slow Travel in the Italian Lakes</a></h3>
+                    </article>
+                    
+                    <article class="journal-item reveal delay-1">
+                        <div class="journal-img overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1513581166358-aa86d878a1f4?q=80&w=2070&auto=format&fit=crop" alt="Food on table" class="zoom-img">
+                        </div>
+                        <div class="journal-meta">
+                            <span class="journal-category">Gastronomy</span>
+                            <span class="journal-date">Sep 28, 2026</span>
+                        </div>
+                        <h3><a href="#">A Culinary Journey Through San Sebastián</a></h3>
+                    </article>
+                    
+                    <article class="journal-item reveal delay-2">
+                        <div class="journal-img overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?q=80&w=2070&auto=format&fit=crop" alt="Forest" class="zoom-img">
+                        </div>
+                        <div class="journal-meta">
+                            <span class="journal-category">Guides</span>
+                            <span class="journal-date">Sep 15, 2026</span>
+                        </div>
+                        <h3><a href="#">What to Pack for an African Safari</a></h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="inquire" class="cta-section">
+            <div class="cta-image" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop');"></div>
+            <div class="cta-overlay"></div>
+            <div class="container cta-content reveal">
+                <h2>Ready to explore?</h2>
+                <p>Contact our travel concierges to begin crafting your bespoke itinerary.</p>
+                <a href="#" class="btn btn-primary mt-4">Start Planning</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>WANDER.</h2>
+                    <p class="footer-desc">Curating extraordinary journeys for the modern explorer.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Discover</h4>
+                    <a href="#">Destinations</a>
+                    <a href="#">Experiences</a>
+                    <a href="#">Curated Journeys</a>
+                    <a href="#">Travel Journal</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Wander</a>
+                    <a href="#">Our Team</a>
+                    <a href="#">Press</a>
+                    <a href="#">Careers</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <p>concierge@wander.luxury</p>
+                    <p>+1 800 555 0199</p>
+                    <div class="social-links mt-2">
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wander Luxury Travel. Built with Nakama CMS.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

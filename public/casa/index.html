@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa | Modern Casual Dining</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Warm & Friendly Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="brand">Casa.</a>
+            
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">Our Story</a>
+                <a href="#menu" class="nav-link">Menu Highlights</a>
+                <a href="#vibe" class="nav-link">The Vibe</a>
+                <a href="#visit" class="nav-link">Visit Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#visit" class="btn btn-primary">Book a Table</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Split Layout with Arch Image) -->
+        <section class="hero bg-cream">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="hero-kicker text-terracotta">Welcome to the neighborhood</span>
+                    <h1 class="hero-title">Good food.<br>Good company.</h1>
+                    <p class="hero-desc">Casa is your local spot for wood-fired pizzas, fresh handmade pastas, and natural wines. Come as you are, stay as long as you like.</p>
+                    <div class="hero-buttons mt-lg">
+                        <a href="#menu" class="btn btn-primary">See the Menu</a>
+                        <a href="#visit" class="btn btn-outline">Order Online</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal reveal-delay">
+                    <div class="arch-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop" alt="Fresh pasta dish" class="arch-img" loading="lazy">
+                        <!-- Decorative element -->
+                        <div class="shape-blob bg-yellow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro / About Section -->
+        <section id="about" class="about section-padding bg-white">
+            <div class="container text-center reveal">
+                <span class="kicker text-terracotta">Our Story</span>
+                <h2 class="section-title">Honest ingredients, made with love.</h2>
+                <p class="section-desc mt-md mx-auto">We believe the best meals are the ones shared with people you love. That's why we source our ingredients from local farmers, make our dough fresh daily, and pour wines that tell a story. It's not complicated, it's just good food.</p>
+                <div class="about-gallery mt-xl">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop" alt="Cooking process" class="rounded-lg reveal reveal-delay" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop" alt="Wood fired pizza" class="rounded-lg reveal reveal-delay-2" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Highlights (Card Grid) -->
+        <section id="menu" class="menu section-padding bg-sand">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <div>
+                        <span class="kicker text-terracotta">Crowd Favorites</span>
+                        <h2 class="section-title">What's cooking.</h2>
+                    </div>
+                    <a href="#" class="btn btn-outline hidden-mobile">View Full Menu</a>
+                </div>
+
+                <div class="menu-grid mt-xl">
+                    <!-- Dish 1 -->
+                    <div class="menu-card reveal">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=2069&auto=format&fit=crop" alt="Margherita Pizza" loading="lazy">
+                            <div class="card-price">$18</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Classic Margherita</h3>
+                            <p>San Marzano tomatoes, fresh mozzarella, torn basil, and a drizzle of extra virgin olive oil on our signature sourdough crust.</p>
+                        </div>
+                    </div>
+                    <!-- Dish 2 -->
+                    <div class="menu-card reveal reveal-delay">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2070&auto=format&fit=crop" alt="Pappardelle Ragu" loading="lazy">
+                            <div class="card-price">$24</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pappardelle Ragù</h3>
+                            <p>Hand-cut ribbon pasta tossed in a slow-cooked beef and pork ragù, finished with aged Parmigiano-Reggiano.</p>
+                        </div>
+                    </div>
+                    <!-- Dish 3 -->
+                    <div class="menu-card reveal reveal-delay-2">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=80&w=2070&auto=format&fit=crop" alt="Burrata Salad" loading="lazy">
+                            <div class="card-price">$16</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Heirloom Burrata</h3>
+                            <p>Creamy burrata cheese, seasonal heirloom tomatoes, pesto, balsamic glaze, and toasted pine nuts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-lg visible-mobile reveal">
+                    <a href="#" class="btn btn-outline">View Full Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Vibe (Bento/Collage Gallery) -->
+        <section id="vibe" class="vibe section-padding bg-white">
+            <div class="container text-center reveal">
+                <span class="kicker text-terracotta">The Vibe</span>
+                <h2 class="section-title">Sunny days & string lights.</h2>
+            </div>
+            
+            <div class="container mt-lg">
+                <div class="vibe-collage">
+                    <div class="vibe-item tall reveal">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop" alt="Restaurant Interior" loading="lazy">
+                    </div>
+                    <div class="vibe-item wide reveal reveal-delay">
+                        <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=2069&auto=format&fit=crop" alt="Wine pouring" loading="lazy">
+                    </div>
+                    <div class="vibe-item box reveal reveal-delay-2">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Sharing food" loading="lazy">
+                    </div>
+                    <div class="vibe-item box reveal reveal-delay-3">
+                        <div class="vibe-text-card bg-yellow">
+                            <h3>Happy Hour</h3>
+                            <p>Everyday from 4PM - 6PM.<br>Half-off selected wines & spritzes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit & Booking -->
+        <section id="visit" class="visit section-padding bg-terracotta text-white">
+            <div class="container">
+                <div class="visit-grid">
+                    <div class="visit-info reveal">
+                        <h2 class="section-title text-white">Come on over.</h2>
+                        <p class="mt-md">Whether it's a quick lunch, a family dinner, or weekend brunch, we've got a table waiting for you.</p>
+                        
+                        <div class="info-blocks mt-lg">
+                            <div class="info-block">
+                                <h4>Location</h4>
+                                <p>123 Main Street<br>Sunnyville, CA 90210</p>
+                            </div>
+                            <div class="info-block">
+                                <h4>Hours</h4>
+                                <p>Tue - Sun: 11am - 10pm<br>Mon: Closed</p>
+                            </div>
+                            <div class="info-block">
+                                <h4>Contact</h4>
+                                <p>(555) 123-4567<br>hello@casarestaurant.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visit-form-wrapper reveal reveal-delay">
+                        <form class="booking-form bg-white text-brown">
+                            <h3 class="mb-md">Reserve your spot</h3>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <select required>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="19:00" selected>7:00 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Guests</label>
+                                    <select required>
+                                        <option value="1">1 Person</option>
+                                        <option value="2" selected>2 People</option>
+                                        <option value="3">3 People</option>
+                                        <option value="4">4 People</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full mt-sm">Confirm Booking</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-brown text-cream">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand text-cream">Casa.</a>
+                    <p class="mt-md opacity-80">A modern neighborhood restaurant serving honest, comforting food.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="#about">Our Story</a>
+                    <a href="#menu">Food & Drinks</a>
+                    <a href="#">Catering</a>
+                    <a href="#">Careers</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">TikTok</a>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Join the family</h4>
+                    <p class="mb-sm opacity-80">Sign up for secret menu items and invites to wine dinners.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom mt-xl pt-lg border-top">
+                <p>&copy; 2026 Casa Restaurant. Built with love.</p>
+                <div class="legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

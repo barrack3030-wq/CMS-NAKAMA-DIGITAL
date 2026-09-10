@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia | Luxury Boutique Hotel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Minimal Overlay Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="#" class="brand">
+                Aurelia
+            </a>
+            
+            <div class="nav-actions">
+                <a href="#booking" class="btn btn-outline">Book Your Stay</a>
+            </div>
+        </div>
+
+        <div class="nav-overlay">
+            <div class="overlay-content">
+                <nav class="overlay-links">
+                    <a href="#about">The Hotel</a>
+                    <a href="#rooms">Rooms & Suites</a>
+                    <a href="#dining">Dining</a>
+                    <a href="#facilities">Facilities</a>
+                    <a href="#gallery">Gallery</a>
+                </nav>
+                <div class="overlay-info">
+                    <p>123 Luxury Avenue, Paris, France</p>
+                    <p>contact@aureliahotel.com</p>
+                    <p>+33 1 23 45 67 89</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Full-screen Hero -->
+        <section class="hero">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ce66b?q=80&w=2070&auto=format&fit=crop" alt="Luxury Hotel Exterior" loading="lazy">
+            </div>
+            <div class="hero-content reveal">
+                <h1 class="hero-title">STAY<br>SOMEWHERE<br>EXTRAORDINARY.</h1>
+                <a href="#booking" class="btn btn-primary mt-lg">Book Your Stay</a>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="about" class="intro section-padding bg-cream text-charcoal">
+            <div class="container intro-container text-center reveal">
+                <span class="section-subtitle">Welcome to Aurelia</span>
+                <h2 class="section-title">An icon of refined elegance and timeless luxury.</h2>
+                <p class="section-desc mt-md">Nestled in the heart of the city, Aurelia offers an unparalleled sanctuary for the modern traveler. Every detail of our boutique hotel has been meticulously curated to provide an experience that is both intimate and grand, blending classic architecture with contemporary sophistication.</p>
+            </div>
+        </section>
+
+        <!-- Rooms & Suites (Editorial Style) -->
+        <section id="rooms" class="rooms section-padding bg-white">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <div>
+                        <span class="section-subtitle">Accommodation</span>
+                        <h2 class="section-title">Rooms & Suites</h2>
+                    </div>
+                    <a href="#" class="link-arrow hidden-mobile">View All Collections →</a>
+                </div>
+
+                <div class="room-cards mt-xl">
+                    <!-- Room 1 -->
+                    <div class="room-card reveal">
+                        <div class="room-image">
+                            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070&auto=format&fit=crop" alt="Deluxe Room" loading="lazy">
+                        </div>
+                        <div class="room-info">
+                            <h3>The Superior Classic</h3>
+                            <p class="room-meta">45 sqm • King Bed • City View</p>
+                            <p class="room-desc">A perfect blend of comfort and style, featuring bespoke furnishings, a marble bathroom, and expansive windows offering panoramic city views.</p>
+                            <a href="#" class="btn btn-text">Discover More</a>
+                        </div>
+                    </div>
+                    <!-- Room 2 -->
+                    <div class="room-card reverse reveal reveal-delay">
+                        <div class="room-image">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1974&auto=format&fit=crop" alt="Executive Suite" loading="lazy">
+                        </div>
+                        <div class="room-info">
+                            <h3>The Aurelia Suite</h3>
+                            <p class="room-meta">85 sqm • Separate Living Area • Balcony</p>
+                            <p class="room-desc">Our signature suite offers expansive living spaces, a private terrace, and personalized butler service for the ultimate luxury experience.</p>
+                            <a href="#" class="btn btn-text">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Section -->
+        <section id="dining" class="dining section-padding bg-charcoal text-white">
+            <div class="container dining-container">
+                <div class="dining-image reveal">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" alt="Fine Dining Restaurant" loading="lazy">
+                </div>
+                <div class="dining-content reveal reveal-delay">
+                    <span class="section-subtitle text-cream">Gastronomy</span>
+                    <h2 class="section-title">A Culinary Journey.</h2>
+                    <p class="section-desc">Experience Michelin-starred dining at L'Orangerie, where our executive chef crafts seasonal menus celebrating the finest local ingredients in an atmosphere of intimate elegance.</p>
+                    <ul class="dining-list mt-md">
+                        <li>
+                            <h4>L'Orangerie</h4>
+                            <span>Fine Dining • Dinner</span>
+                        </li>
+                        <li>
+                            <h4>The Brass Bar</h4>
+                            <span>Signature Cocktails • Evening</span>
+                        </li>
+                        <li>
+                            <h4>The Winter Garden</h4>
+                            <span>Afternoon Tea • All Day</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-outline mt-lg">Explore Dining</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities (Minimalist Icons) -->
+        <section id="facilities" class="facilities section-padding bg-cream">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2 class="section-title">Hotel Experiences</h2>
+                </div>
+                <div class="facilities-grid mt-lg reveal">
+                    <div class="facility-item">
+                        <div class="facility-icon">spa</div>
+                        <h4>The Spa by Aurelia</h4>
+                        <p>Holistic treatments</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">pool</div>
+                        <h4>Indoor Pool</h4>
+                        <p>Heated, 25 meters</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">fitness_center</div>
+                        <h4>Fitness Studio</h4>
+                        <p>State-of-the-art equipment</p>
+                    </div>
+                    <div class="facility-item">
+                        <div class="facility-icon">local_taxi</div>
+                        <h4>Chauffeur Service</h4>
+                        <p>Luxury fleet available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section id="gallery" class="gallery section-padding bg-white">
+            <div class="container">
+                <div class="gallery-grid">
+                    <div class="gallery-item large reveal">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop" alt="Hotel Bedroom Detail" loading="lazy">
+                    </div>
+                    <div class="gallery-item reveal reveal-delay">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop" alt="Hotel Lobby" loading="lazy">
+                    </div>
+                    <div class="gallery-item reveal reveal-delay-2">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Spa Detail" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guest Reviews -->
+        <section class="reviews section-padding bg-charcoal text-white">
+            <div class="container text-center reveal">
+                <h2 class="section-title">"The epitome of luxury."</h2>
+                <p class="section-desc mt-md text-cream">"From the impeccable service to the stunning room design, Aurelia provided an unforgettable experience. A true oasis in the city."</p>
+                <div class="review-meta mt-lg">
+                    <span>Vogue Travel</span>
+                    <span class="stars">★★★★★</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking CTA Form -->
+        <section id="booking" class="booking section-padding bg-cream">
+            <div class="container booking-container reveal">
+                <div class="text-center mb-lg">
+                    <h2 class="section-title">Plan Your Visit</h2>
+                </div>
+                <form class="booking-widget">
+                    <div class="widget-inputs">
+                        <div class="input-group">
+                            <label>Check-in</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Check-out</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Guests</label>
+                            <select required>
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full mt-md">Check Availability</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-white text-charcoal">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="brand text-charcoal">Aurelia</a>
+                </div>
+                <div class="footer-links">
+                    <div class="link-col">
+                        <h4>Contact</h4>
+                        <p>123 Luxury Avenue</p>
+                        <p>Paris, France 75008</p>
+                        <p class="mt-sm">+33 1 23 45 67 89</p>
+                        <p>reservations@aurelia.com</p>
+                    </div>
+                    <div class="link-col">
+                        <h4>Explore</h4>
+                        <a href="#">The Hotel</a>
+                        <a href="#">Rooms & Suites</a>
+                        <a href="#">Dining</a>
+                        <a href="#">Spa & Wellness</a>
+                    </div>
+                    <div class="link-col">
+                        <h4>Follow</h4>
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aurelia Hotels & Resorts.</p>
+                <div class="legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include Material Icons for Facilities -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Minimalist Lifestyle Store</title>
+    <meta name="description" content="Curated essentials for mindful living. Premium skincare, ceramics, and home goods.">
+    
+    <!-- Google Fonts: Syne for modern display, Inter for clean UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Notification Bar -->
+    <div class="top-bar">
+        Free shipping on all orders over $150 &mdash; Shop Now
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-links left-links">
+                <a href="#shop" class="nav-item">Shop</a>
+                <a href="#collections" class="nav-item">Collections</a>
+                <a href="#about" class="nav-item">About</a>
+            </nav>
+
+            <a href="#" class="brand">AURA.</a>
+
+            <div class="nav-actions">
+                <a href="#" class="action-icon" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+                <a href="#" class="action-icon" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <a href="#" class="action-icon cart-icon" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-split">
+                <div class="hero-content bg-cream reveal">
+                    <span class="hero-tag">New Collection</span>
+                    <h1 class="hero-title">Mindful<br>Essentials.</h1>
+                    <p class="hero-desc">Elevate your daily rituals with our curated collection of organic skincare and artisanal home goods.</p>
+                    <a href="#shop" class="btn btn-solid mt-4">Shop Collection</a>
+                </div>
+                <div class="hero-image reveal delay-1">
+                    <img src="https://images.unsplash.com/photo-1615397323282-31032338f921?q=80&w=2070&auto=format&fit=crop" alt="Minimalist skincare products">
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="collections" class="categories section-padding">
+            <div class="container">
+                <div class="category-grid">
+                    <a href="#" class="category-card reveal">
+                        <div class="cat-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1974&auto=format&fit=crop" alt="Skincare">
+                        </div>
+                        <h3>Botanical Skincare</h3>
+                    </a>
+                    <a href="#" class="category-card reveal delay-1">
+                        <div class="cat-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop" alt="Ceramics">
+                        </div>
+                        <h3>Artisan Ceramics</h3>
+                    </a>
+                    <a href="#" class="category-card reveal delay-2">
+                        <div class="cat-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=1974&auto=format&fit=crop" alt="Fragrance">
+                        </div>
+                        <h3>Home Fragrance</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section id="shop" class="products section-padding bg-cream">
+            <div class="container">
+                <div class="section-header flex-between reveal">
+                    <h2>Trending Now</h2>
+                    <a href="#" class="btn-link">View All Products <span class="arrow">&rarr;</span></a>
+                </div>
+
+                <div class="product-grid mt-5">
+                    <!-- Product 1 -->
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1974&auto=format&fit=crop" alt="Face Serum" class="img-main">
+                            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1953&auto=format&fit=crop" alt="Face Serum Texture" class="img-hover">
+                            <div class="product-badges">
+                                <span class="badge">Bestseller</span>
+                            </div>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-title">Radiance Face Serum</a>
+                            <p class="product-category">Skincare</p>
+                            <p class="product-price">$65.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card reveal delay-1">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605814234032-de9dbb1328eb?q=80&w=1974&auto=format&fit=crop" alt="Ceramic Mug" class="img-main">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-title">Speckled Ceramic Mug</a>
+                            <p class="product-category">Home</p>
+                            <p class="product-price">$28.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card reveal delay-2">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602928308479-5867456cc180?q=80&w=1974&auto=format&fit=crop" alt="Scented Candle" class="img-main">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-title">Santal Scented Candle</a>
+                            <p class="product-category">Fragrance</p>
+                            <p class="product-price">$42.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card reveal delay-3">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=1974&auto=format&fit=crop" alt="Body Oil" class="img-main">
+                            <div class="product-badges">
+                                <span class="badge sale">Sale</span>
+                            </div>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-title">Nourishing Body Oil</a>
+                            <p class="product-category">Bodycare</p>
+                            <p class="product-price"><del>$55.00</del> <span class="sale-price">$45.00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Story (Split Layout) -->
+        <section id="about" class="story section-padding">
+            <div class="container">
+                <div class="story-layout">
+                    <div class="story-img-container reveal">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=1935&auto=format&fit=crop" alt="Handmaking process">
+                        <div class="story-floating-box bg-sage text-white">
+                            <h3>100%</h3>
+                            <p>Cruelty-Free & Ethical</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-content reveal delay-1">
+                        <h2>Crafted with intention.</h2>
+                        <p class="lead">We believe that the objects you bring into your life should serve a purpose and bring you joy.</p>
+                        <p>Aura was founded on the principle of slow living. Every product in our collection is sourced ethically, prioritizing sustainable materials and supporting independent artisans around the globe. We strip away the unnecessary, leaving only what is truly essential.</p>
+                        <a href="#" class="btn btn-outline mt-4">Our Journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram/Gallery Feed -->
+        <section class="gallery">
+            <div class="container text-center mb-4 reveal">
+                <p class="section-tag">@AURA.LIFESTYLE</p>
+                <h2>Join our community</h2>
+            </div>
+            <div class="gallery-row">
+                <a href="#" class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=1780&auto=format&fit=crop" alt="IG 1"></a>
+                <a href="#" class="gallery-item reveal delay-1"><img src="https://images.unsplash.com/photo-1585218356057-062ca8855df9?q=80&w=1974&auto=format&fit=crop" alt="IG 2"></a>
+                <a href="#" class="gallery-item reveal delay-2"><img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1974&auto=format&fit=crop" alt="IG 3"></a>
+                <a href="#" class="gallery-item reveal delay-3"><img src="https://images.unsplash.com/photo-1592652495813-888e28cc8d01?q=80&w=1964&auto=format&fit=crop" alt="IG 4"></a>
+                <a href="#" class="gallery-item reveal delay-4"><img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=1780&auto=format&fit=crop" alt="IG 5"></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-newsletter">
+                    <h3>Join the Aura list.</h3>
+                    <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form mt-3">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn-submit">→</button>
+                    </form>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="#">Skincare</a>
+                    <a href="#">Bodycare</a>
+                    <a href="#">Ceramics</a>
+                    <a href="#">Fragrance</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Shipping & Returns</a>
+                    <a href="#">Track Order</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <a href="#">Our Story</a>
+                    <a href="#">Sustainability</a>
+                    <a href="#">Journal</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-brand">AURA.</div>
+                <div class="copyright">
+                    <p>&copy; 2026 Aura Lifestyle. Built with Nakama CMS.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

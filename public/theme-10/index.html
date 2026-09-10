@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALCÔVE | Premium Architecture & Real Estate</title>
+    <meta name="description" content="Discover exceptional properties and architectural masterpieces.">
+    
+    <!-- Google Fonts: Cormorant Garamond for elegant serif, Montserrat for modern geometric body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Loading Overlay (Optional for elegant reveal) -->
+    <div class="loader" id="loader">
+        <div class="loader-brand">ALCÔVE</div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="text-xs tracking-widest text-uppercase">Menu</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            
+            <a href="#" class="brand">ALCÔVE</a>
+
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline text-xs">Inquire</a>
+            </div>
+        </div>
+
+        <!-- Fullscreen Menu Overlay -->
+        <div class="menu-overlay">
+            <div class="menu-overlay-bg"></div>
+            <div class="menu-content">
+                <div class="menu-links">
+                    <a href="#properties" class="menu-item"><span class="menu-num">01</span> Properties</a>
+                    <a href="#vision" class="menu-item"><span class="menu-num">02</span> Our Vision</a>
+                    <a href="#journal" class="menu-item"><span class="menu-num">03</span> Journal</a>
+                    <a href="#contact" class="menu-item"><span class="menu-num">04</span> Contact</a>
+                </div>
+                <div class="menu-footer">
+                    <div class="menu-contact">
+                        <p>contact@alcove.com</p>
+                        <p>+1 (800) 555-0199</p>
+                    </div>
+                    <div class="menu-social">
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <div class="slide-bg">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Modern Architecture">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content container">
+                        <div class="slide-meta reveal">
+                            <span class="location">Beverly Hills, CA</span>
+                            <span class="price">$12,500,000</span>
+                        </div>
+                        <h1 class="hero-title reveal delay-1">The Glass<br>Pavilion</h1>
+                        <a href="#properties" class="btn btn-link reveal delay-2">View Property <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Vision / About -->
+        <section id="vision" class="vision section-padding bg-light">
+            <div class="container">
+                <div class="vision-grid">
+                    <div class="vision-text reveal">
+                        <span class="section-tag">Our Philosophy</span>
+                        <h2>Architecture is<br>the poetry of<br><em>space</em>.</h2>
+                        <p class="mt-4 text-muted">We curate properties that transcend simple accommodation. Every home in our portfolio represents a dialogue between human ingenuity and natural landscapes—spaces designed to elevate the everyday into the extraordinary.</p>
+                        <a href="#" class="btn btn-outline mt-5">Discover Alcôve</a>
+                    </div>
+                    <div class="vision-images">
+                        <div class="img-wrap img-primary reveal delay-1">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Interior Details">
+                        </div>
+                        <div class="img-wrap img-secondary reveal delay-2">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Architectural Lines">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Properties (Horizontal Scroll Concept) -->
+        <section id="properties" class="properties section-padding bg-dark text-white overflow-hidden">
+            <div class="container flex-between mb-5 reveal">
+                <h2>Curated<br>Residences</h2>
+                <div class="slider-controls d-none-mobile">
+                    <button class="ctrl-btn prev" aria-label="Previous">&larr;</button>
+                    <button class="ctrl-btn next" aria-label="Next">&rarr;</button>
+                </div>
+            </div>
+            
+            <div class="property-carousel reveal delay-1">
+                <div class="carousel-track">
+                    <!-- Property 1 -->
+                    <a href="#" class="property-card">
+                        <div class="prop-img">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="Villa Nova">
+                            <div class="prop-badge">Exclusive</div>
+                        </div>
+                        <div class="prop-info">
+                            <h3 class="prop-title">Villa Nova</h3>
+                            <p class="prop-location">Malibu, California</p>
+                            <div class="prop-specs">
+                                <span>4 Beds</span>
+                                <span>5 Baths</span>
+                                <span>6,200 sqft</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Property 2 -->
+                    <a href="#" class="property-card">
+                        <div class="prop-img">
+                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070&auto=format&fit=crop" alt="The Sanctuary">
+                        </div>
+                        <div class="prop-info">
+                            <h3 class="prop-title">The Sanctuary</h3>
+                            <p class="prop-location">Aspen, Colorado</p>
+                            <div class="prop-specs">
+                                <span>6 Beds</span>
+                                <span>7 Baths</span>
+                                <span>8,500 sqft</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Property 3 -->
+                    <a href="#" class="property-card">
+                        <div class="prop-img">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2069&auto=format&fit=crop" alt="Coastal House">
+                        </div>
+                        <div class="prop-info">
+                            <h3 class="prop-title">Azure Estate</h3>
+                            <p class="prop-location">Carmel-by-the-Sea, CA</p>
+                            <div class="prop-specs">
+                                <span>3 Beds</span>
+                                <span>3.5 Baths</span>
+                                <span>4,100 sqft</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services / Expertise -->
+        <section class="expertise section-padding bg-light">
+            <div class="container text-center reveal">
+                <span class="section-tag">Excellence</span>
+                <h2>Bespoke Services</h2>
+            </div>
+            
+            <div class="container mt-5">
+                <div class="expertise-accordion reveal delay-1">
+                    <div class="accordion-item active">
+                        <div class="acc-header">
+                            <h3>01. Acquisitions</h3>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="acc-body">
+                            <p>We leverage our global network and off-market intelligence to secure unparalleled properties for our discerning clientele, ensuring privacy and absolute discretion throughout the process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="acc-header">
+                            <h3>02. Architectural Advisory</h3>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="acc-body">
+                            <p>Our in-house design experts consult on renovations, historic restorations, and ground-up builds, connecting you with world-renowned architects and interior designers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="acc-header">
+                            <h3>03. Private Sales</h3>
+                            <span class="icon">+</span>
+                        </div>
+                        <div class="acc-body">
+                            <p>We craft tailored, high-end marketing campaigns to present your property to a highly targeted, qualified global audience of buyers and investors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Contact -->
+        <section id="contact" class="cta-section bg-dark text-white">
+            <div class="cta-container">
+                <div class="cta-image reveal">
+                    <img src="https://images.unsplash.com/photo-1600607686927-ce4a89bc10b6?q=80&w=2053&auto=format&fit=crop" alt="Staircase detail">
+                </div>
+                <div class="cta-content reveal delay-1">
+                    <h2>Begin the<br>conversation.</h2>
+                    <p class="mt-3 text-muted">Whether you are acquiring a new sanctuary or parting with a masterpiece, our advisors are at your service.</p>
+                    
+                    <form class="contact-form mt-4">
+                        <div class="input-group">
+                            <input type="text" placeholder="Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Subject of Inquiry">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <a href="#" class="brand text-white">ALCÔVE</a>
+                    <p class="mt-4 text-xs text-muted">Curating the world's most exceptional architectural properties.</p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="nav-col">
+                        <h4>Explore</h4>
+                        <a href="#">Properties</a>
+                        <a href="#">Developments</a>
+                        <a href="#">Journal</a>
+                    </div>
+                    <div class="nav-col">
+                        <h4>Company</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Advisors</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>The Alcôve List</h4>
+                    <p class="text-xs text-muted mb-3">Subscribe for exclusive off-market opportunities.</p>
+                    <div class="email-input">
+                        <input type="email" placeholder="Email Address">
+                        <button type="button">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom mt-5">
+                <p class="text-xs text-muted">&copy; 2026 Alcôve Real Estate. Built with Nakama CMS.</p>
+                <div class="social-links">
+                    <a href="#">Ig.</a>
+                    <a href="#">In.</a>
+                    <a href="#">Pt.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medix | Modern Medical Center</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                </div>
+                <span>MEDIX</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#specialists" class="nav-link">Specialists</a>
+                <a href="#results" class="nav-link">Results</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#appointment" class="btn btn-outline-electric hidden-mobile">Patient Portal</a>
+                <a href="#appointment" class="btn btn-electric">Book Consultation</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero bg-navy text-white">
+            <div class="hero-bg-grid"></div>
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <div class="tech-badge">
+                        <span class="pulse-dot"></span>
+                        ADVANCED DIAGNOSTICS CENTER
+                    </div>
+                    <h1 class="hero-title">PRECISION<br>IN EVERY<br><span class="text-electric">DIAGNOSIS.</span></h1>
+                    <p class="hero-desc">Integrating cutting-edge medical technology with world-class specialist expertise to deliver unmatched clinical outcomes.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-box">
+                            <h3>10+</h3>
+                            <p>Specialists</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>20K+</h3>
+                            <p>Patients Treated</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>15+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal reveal-delay">
+                    <div class="image-frame">
+                        <div class="frame-corners"></div>
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" alt="Advanced Medical Lab" loading="lazy">
+                        <div class="overlay-data">
+                            <div class="data-row">
+                                <span>SYS_STATUS:</span> <span class="text-electric">OPTIMAL</span>
+                            </div>
+                            <div class="data-row">
+                                <span>ACCURACY:</span> <span>99.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services & Departments -->
+        <section id="services" class="services section-padding bg-white">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-kicker">Clinical Departments</span>
+                    <h2 class="section-title">Specialized Medical Services</h2>
+                    <p class="section-desc">Comprehensive diagnostic and therapeutic solutions driven by data and clinical excellence.</p>
+                </div>
+                
+                <div class="services-grid mt-lg">
+                    <!-- Service 1 -->
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            </div>
+                            <span class="service-id">DEP-01</span>
+                        </div>
+                        <h3>Cardiovascular</h3>
+                        <p>Advanced cardiac imaging, electrophysiology, and comprehensive heart disease management.</p>
+                        <a href="#" class="btn-link">Explore Department →</a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card reveal reveal-delay">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            </div>
+                            <span class="service-id">DEP-02</span>
+                        </div>
+                        <h3>Neurology</h3>
+                        <p>High-resolution neuroimaging and precision treatments for complex neurological conditions.</p>
+                        <a href="#" class="btn-link">Explore Department →</a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card reveal reveal-delay-2">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h10l2-9 4 18 2-9h4"/></svg>
+                            </div>
+                            <span class="service-id">DEP-03</span>
+                        </div>
+                        <h3>Oncology</h3>
+                        <p>Targeted therapies, genetic profiling, and multidisciplinary cancer care protocols.</p>
+                        <a href="#" class="btn-link">Explore Department →</a>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <span class="service-id">DEP-04</span>
+                        </div>
+                        <h3>Genomics</h3>
+                        <p>DNA sequencing and predictive health analytics for personalized medicine.</p>
+                        <a href="#" class="btn-link">Explore Department →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="technology" class="technology section-padding bg-navy text-white">
+            <div class="container tech-container">
+                <div class="tech-content reveal">
+                    <span class="section-kicker text-electric">Core Infrastructure</span>
+                    <h2 class="section-title">Powered by Next-Gen Technology.</h2>
+                    <p class="section-desc">We invest heavily in state-of-the-art medical equipment to ensure the highest fidelity in diagnostics and surgical precision.</p>
+                    
+                    <ul class="tech-list mt-md">
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <div>
+                                <strong>3 Tesla MRI Scanners</strong>
+                                <span>Ultra-high resolution imaging for neurological and musculoskeletal assessment.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <div>
+                                <strong>Robotic-Assisted Surgery</strong>
+                                <span>Minimally invasive procedures with sub-millimeter precision.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <div>
+                                <strong>AI Diagnostic Algorithms</strong>
+                                <span>Real-time data analysis assisting doctors in early disease detection.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tech-visual reveal reveal-delay">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" alt="Medical Technology" loading="lazy" class="tech-img">
+                    <div class="scanner-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialists Section -->
+        <section id="specialists" class="specialists section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-kicker">Medical Board</span>
+                    <h2 class="section-title">Leading Specialists</h2>
+                </div>
+
+                <div class="specialist-grid mt-lg">
+                    <!-- Specialist 1 -->
+                    <div class="spec-card reveal">
+                        <div class="spec-img">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" alt="Dr. Alan Turing" loading="lazy">
+                        </div>
+                        <div class="spec-info">
+                            <h3>Dr. Alan Chen, MD, PhD</h3>
+                            <p class="spec-role">Head of Neurology</p>
+                            <div class="spec-meta">
+                                <span>Harvard Medical</span>
+                                <span class="dot">•</span>
+                                <span>18 Yrs Exp.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Specialist 2 -->
+                    <div class="spec-card reveal reveal-delay">
+                        <div class="spec-img">
+                            <img src="https://images.unsplash.com/photo-1594824406935-44fb74719cd2?q=80&w=2070&auto=format&fit=crop" alt="Dr. Sarah Connor" loading="lazy">
+                        </div>
+                        <div class="spec-info">
+                            <h3>Dr. Sarah Connor, MD</h3>
+                            <p class="spec-role">Chief of Cardiology</p>
+                            <div class="spec-meta">
+                                <span>Johns Hopkins</span>
+                                <span class="dot">•</span>
+                                <span>15 Yrs Exp.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Specialist 3 -->
+                    <div class="spec-card reveal reveal-delay-2">
+                        <div class="spec-img">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" alt="Dr. Elena Rostova" loading="lazy">
+                        </div>
+                        <div class="spec-info">
+                            <h3>Dr. Elena Rostova, MD</h3>
+                            <p class="spec-role">Oncology Director</p>
+                            <div class="spec-meta">
+                                <span>Stanford Med</span>
+                                <span class="dot">•</span>
+                                <span>20 Yrs Exp.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & FAQ Section -->
+        <section id="results" class="results-faq section-padding bg-white">
+            <div class="container rf-container">
+                <!-- Patient Results -->
+                <div class="results-col reveal">
+                    <span class="section-kicker">Clinical Outcomes</span>
+                    <h2 class="section-title">Data-Driven Success.</h2>
+                    <p class="section-desc">Our commitment to precision medicine yields consistently high success rates across all major departments.</p>
+                    
+                    <div class="metrics-grid mt-md">
+                        <div class="metric-card">
+                            <div class="metric-value">98<span class="percent">%</span></div>
+                            <div class="metric-label">Diagnostic Accuracy</div>
+                            <div class="metric-bar"><div class="fill" style="width: 98%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.9<span class="percent">/5</span></div>
+                            <div class="metric-label">Patient Satisfaction</div>
+                            <div class="metric-bar"><div class="fill" style="width: 96%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">-30<span class="percent">%</span></div>
+                            <div class="metric-label">Reduced Recovery Time</div>
+                            <div class="metric-bar"><div class="fill" style="width: 70%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="faq-col reveal reveal-delay">
+                    <span class="section-kicker">Patient Information</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    
+                    <div class="accordion mt-md">
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Do I need a referral to see a specialist?
+                                <span class="icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>While some insurance plans require a primary care referral, Medix accepts direct specialist appointments for self-pay and specific PPO networks. Please consult our administrative desk for your specific case.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                How fast can I get my lab results?
+                                <span class="icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>With our on-site advanced laboratory, standard blood panels are available within 4 hours. Complex genetic or pathology tests typically take 48-72 hours. All results are immediately synced to your Patient Portal.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Do you offer telehealth consultations?
+                                <span class="icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Yes. Our secure Patient Portal allows high-definition telehealth consultations with our specialists for follow-ups, initial screenings, and test result discussions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointment / CTA -->
+        <section id="appointment" class="appointment section-padding bg-navy text-white">
+            <div class="hero-bg-grid"></div>
+            <div class="container form-container reveal">
+                <div class="form-header text-center">
+                    <h2 class="section-title">Schedule a Consultation</h2>
+                    <p class="section-desc">Connect with our specialists to initiate your personalized diagnostic and treatment plan.</p>
+                </div>
+
+                <form class="medix-form mt-lg">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Patient Name</label>
+                            <input type="text" placeholder="Full Legal Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="patient@example.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Department</label>
+                            <select required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="cardio">Cardiovascular</option>
+                                <option value="neuro">Neurology</option>
+                                <option value="onco">Oncology</option>
+                                <option value="geno">Genomics</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Preferred Date</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+                    <div class="input-group full-width mt-md">
+                        <label>Brief Medical Description</label>
+                        <textarea rows="4" placeholder="Briefly describe your symptoms or reason for visit..."></textarea>
+                    </div>
+                    <div class="form-submit mt-md text-center">
+                        <button type="submit" class="btn btn-electric btn-large">SECURE APPOINTMENT</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark-navy text-white">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand text-white">
+                        <div class="brand-icon electric-bg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1118" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        </div>
+                        <span>MEDIX</span>
+                    </a>
+                    <p class="footer-desc mt-md">Precision in every diagnosis. Excellence in every treatment. Leading the future of medical science.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Clinical</h4>
+                    <a href="#">Cardiology</a>
+                    <a href="#">Neurology</a>
+                    <a href="#">Oncology</a>
+                    <a href="#">Genomics</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Patients</h4>
+                    <a href="#">Patient Portal</a>
+                    <a href="#">Billing & Insurance</a>
+                    <a href="#">Medical Records</a>
+                    <a href="#">Visitor Info</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Center</h4>
+                    <p>Emergency: <strong>911</strong></p>
+                    <p>General: <strong>1-800-MEDIX-00</strong></p>
+                    <p>800 Technology Drive<br>Innovation Medical District</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Medix Advanced Medical Center. All rights reserved.
+                </div>
+                <div class="legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
