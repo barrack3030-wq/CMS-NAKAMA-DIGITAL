@@ -93,16 +93,17 @@ function generateWebsite(data) {
   const themes = ['clarity','vita','medix','serenity','aurelia','tropica','urban','haven','noir','casa','savor','mesa'];
   if (themes.indexOf(theme) === -1) throw new Error('Theme tidak valid: ' + theme);
 
-  const websites = listWebsites();
-  const existing = websites.find(function(w) { return String(w.customer_id) === customerId; });
+  const existing = listWebsites().find(function(w) { return String(w.customer_id) === customerId; });
   if (existing && existing.repository) throw new Error('Customer ini sudah memiliki website: ' + existing.repository + '. Hapus/reset website lama di Sheet jika ingin membuat ulang repository baru.');
 
   const repository = uniqueRepoName_(customer.business_name);
   const repositoryUrl = 'https://github.com/' + cfg.githubOwner + '/' + repository;
 
   createRepository_(cfg, repository, customer.business_name);
+
   try {
     copyThemeToRepo_(cfg, theme, repository, customer);
+    putConfigFile_(cfg, repository, customer);
     enablePages_(cfg, repository);
   } catch (err) {
     throw new Error('Repository berhasil dibuat (' + repository + '), tetapi proses publish gagal: ' + (err && err.message ? err.message : String(err)));
@@ -187,37 +188,31 @@ function createRepository_(cfg, repository, businessName) {
     has_issues: false,
     has_projects: false,
     has_wiki: false,
-    auto_init: false
+    auto_init: true
   });
 }
 
-function githubJson_(cfg, method, endpoint, payload) {
-  return github_(cfg, method, endpoint, payload);
-}
-
 function getRef_(cfg, repository, ref) {
-  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/ref/' + encodeURIComponent(ref), null);
+  return github_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/ref/' + encodeURIComponent(ref), null);
 }
 
 function getCommit_(cfg, repository, sha) {
-  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits/' + sha, null);
+  return github_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits/' + sha, null);
 }
 
 function getTree_(cfg, repository, treeSha) {
-  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees/' + treeSha + '?recursive=1', null);
+  return github_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees/' + treeSha + '?recursive=1', null);
 }
 
 function getSourceTree_(cfg, theme) {
   const ref = getRef_(cfg, cfg.sourceRepo, 'heads/main');
   const commit = getCommit_(cfg, cfg.sourceRepo, ref.object.sha);
   const tree = getTree_(cfg, cfg.sourceRepo, commit.tree.sha);
-  return tree.tree.filter(function(item) {
-    return item.type === 'blob' && item.path.indexOf('public/' + theme + '/') === 0;
-  });
+  return tree.tree.filter(function(item) { return item.type === 'blob' && item.path.indexOf('public/' + theme + '/') === 0; });
 }
 
 function getBlob_(cfg, repository, sha) {
-  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs/' + sha, null);
+  return github_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs/' + sha, null);
 }
 
 function decodeBlobText_(encoded) {
@@ -228,58 +223,41 @@ function copyThemeToRepo_(cfg, theme, repository, customer) {
   const sourceTree = getSourceTree_(cfg, theme);
   if (!sourceTree.length) throw new Error('Theme public/' + theme + ' tidak ditemukan di source repository.');
 
-  const blobs = [];
-  sourceTree.forEach(function(item) {
+  const entries = sourceTree.map(function(item) {
     const sourceBlob = getBlob_(cfg, cfg.sourceRepo, item.sha);
-    let content = sourceBlob.encoding === 'base64' ? sourceBlob.content : '';
+    let encoded = String(sourceBlob.content || '').replace(/\n/g, '');
     const relative = item.path.replace('public/' + theme + '/', '');
-
-    // HTML is text and can safely be customized. Binary assets remain byte-for-byte base64.
     if (/\.html?$/i.test(relative)) {
-      let html = decodeBlobText_(content);
-      html = customizeHtml_(html, customer);
-      content = Utilities.base64Encode(Utilities.newBlob(html, 'text/html').getBytes());
+      const html = customizeHtml_(decodeBlobText_(encoded), customer);
+      encoded = Utilities.base64Encode(Utilities.newBlob(html, 'text/html').getBytes());
     }
 
-    blobs.push({ path: relative, mode: '100644', type: 'blob', content: content, encoding: 'base64' });
-  });
-
-  // GitHub's tree API expects blob SHA, not base64 content. Create blobs first.
-  const entries = blobs.map(function(b) {
-    const blob = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
-      content: b.content,
+    const blob = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
+      content: encoded,
       encoding: 'base64'
     });
-    return { path: b.path, mode: b.mode, type: 'blob', sha: blob.sha };
+    return { path: relative, mode: '100644', type: 'blob', sha: blob.sha };
   });
 
-  const baseTree = getRef_(cfg, repository, 'heads/main').object.sha;
-  const baseCommit = getCommit_(cfg, repository, baseTree);
-  const tree = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
+  const baseRef = getRef_(cfg, repository, 'heads/main');
+  const baseCommit = getCommit_(cfg, repository, baseRef.object.sha);
+  const tree = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
     base_tree: baseCommit.tree.sha,
     tree: entries
   });
-
-  const commit = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
+  const commit = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
     message: 'Generate website from ' + theme + ' theme',
     tree: tree.sha
   });
-
-  githubJson_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', {
-    sha: commit.sha,
-    force: false
-  });
+  github_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: commit.sha, force: false });
 }
 
 function customizeHtml_(html, customer) {
   const business = escapeHtml_(String(customer.business_name || ''));
-  const title = business || 'Website';
   const description = business ? business + ' - Website generated by Nakama Digital' : 'Website generated by Nakama Digital';
-
   html = html.replace(/<title>[^<]*<\/title>/i, '<title>' + business + '</title>');
   html = html.replace(/<meta\s+name=["\']description["\']\s+content=["\'][^"\']*["\']\s*\/?\s*>/i, '<meta name="description" content="' + escapeAttr_(description) + '">');
   html = html.replace(/<h1([^>]*)>[^<]*<\/h1>/i, '<h1$1>' + business + '</h1>');
-
   if (!/nakama-site-config\.js/i.test(html)) {
     const script = '<script src="js/nakama-site-config.js"></script>';
     if (/<\/body>/i.test(html)) html = html.replace(/<\/body>/i, script + '\n</body>');
@@ -288,7 +266,7 @@ function customizeHtml_(html, customer) {
   return html;
 }
 
-function escapeHtml_(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function escapeHtml_(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;'); }
 function escapeAttr_(s) { return escapeHtml_(s); }
 
 function putConfigFile_(cfg, repository, customer) {
@@ -302,27 +280,27 @@ function putConfigFile_(cfg, repository, customer) {
     address: String(customer.address || '')
   }, null, 2) + ';\n';
 
-  const blob = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
+  const blob = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
     content: Utilities.base64Encode(Utilities.newBlob(config, 'application/javascript').getBytes()),
     encoding: 'base64'
   });
   const ref = getRef_(cfg, repository, 'heads/main');
   const commit = getCommit_(cfg, repository, ref.object.sha);
-  const tree = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
+  const tree = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
     base_tree: commit.tree.sha,
     tree: [{ path: 'js/nakama-site-config.js', mode: '100644', type: 'blob', sha: blob.sha }]
   });
-  const newCommit = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
+  const newCommit = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
     message: 'Add Nakama site configuration',
     tree: tree.sha
   });
-  githubJson_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: newCommit.sha, force: false });
+  github_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: newCommit.sha, force: false });
 }
 
 function enablePages_(cfg, repository) {
   const endpoint = '/repos/' + cfg.githubOwner + '/' + repository + '/pages';
   try {
-    return githubJson_(cfg, 'post', endpoint, { source: { branch: 'main', path: '/' } });
+    return github_(cfg, 'post', endpoint, { source: { branch: 'main', path: '/' } });
   } catch (err) {
     const msg = String(err && err.message ? err.message : err);
     if (/GitHub API 409/i.test(msg) || /already exists/i.test(msg) || /already enabled/i.test(msg)) return { alreadyEnabled: true };
