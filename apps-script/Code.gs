@@ -1,339 +1,186 @@
 const API_VERSION = '2026-03-10';
 
 function doGet() {
-  return json({
-    success: true,
-    data: {
-      message: 'Nakama CMS API is running',
-      version: '1.0.0'
-    }
-  });
+  return json({ success: true, data: { message: 'Nakama CMS API is running', version: '1.0.0' } });
 }
 
 function doPost(e) {
   try {
-    const raw = e && e.postData && e.postData.contents ? e.postData.contents : '{}';
-    const data = JSON.parse(raw);
-    const action = String(data.action || '').trim();
-
-    switch (action) {
-      case 'health':
-        return json({ success: true, data: { message: 'API OK', version: API_VERSION } });
-      case 'init':
-        return json({ success: true, data: initSheets() });
-      case 'list_customers':
-        return json({ success: true, data: listCustomers() });
-      case 'create_customer':
-        return json({ success: true, data: createCustomer(data) });
-      case 'list_websites':
-        return json({ success: true, data: listWebsites() });
-      case 'generate_website':
-        return json({ success: true, data: generateWebsite(data) });
-      default:
-        return json({ success: false, error: 'Unknown action: ' + action });
+    const data = JSON.parse(e && e.postData && e.postData.contents ? e.postData.contents : '{}');
+    switch (String(data.action || '').trim()) {
+      case 'health': return json({ success: true, data: { message: 'API OK', version: API_VERSION } });
+      case 'init': return json({ success: true, data: initSheets() });
+      case 'list_customers': return json({ success: true, data: listCustomers() });
+      case 'create_customer': return json({ success: true, data: createCustomer(data) });
+      case 'list_websites': return json({ success: true, data: listWebsites() });
+      case 'generate_website': return json({ success: true, data: generateWebsite(data) });
+      default: return json({ success: false, error: 'Unknown action: ' + data.action });
     }
   } catch (err) {
-    return json({
-      success: false,
-      error: err && err.message ? err.message : String(err),
-      detail: err && err.stack ? err.stack : ''
-    });
+    return json({ success: false, error: err && err.message ? err.message : String(err) });
   }
 }
 
 function json(payload) {
-  return ContentService
-    .createTextOutput(JSON.stringify(payload))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(ContentService.MimeType.JSON);
 }
 
-function props() {
-  return PropertiesService.getScriptProperties();
-}
-
-function getConfig() {
-  const p = props();
-  const cfg = {
+function config_() {
+  const p = PropertiesService.getScriptProperties();
+  const c = {
     sheetId: String(p.getProperty('SHEET_ID') || '').trim(),
     githubToken: String(p.getProperty('GITHUB_TOKEN') || '').trim(),
     githubOwner: String(p.getProperty('GITHUB_OWNER') || '').trim(),
     sourceRepo: String(p.getProperty('GITHUB_SOURCE_REPO') || '').trim()
   };
-
-  if (!cfg.sheetId) throw new Error('SHEET_ID belum diatur di Script Properties.');
-  if (!cfg.githubToken) throw new Error('GITHUB_TOKEN belum diatur di Script Properties.');
-  if (!cfg.githubOwner) throw new Error('GITHUB_OWNER belum diatur di Script Properties.');
-  if (!cfg.sourceRepo) throw new Error('GITHUB_SOURCE_REPO belum diatur di Script Properties.');
-
-  return cfg;
+  if (!c.sheetId) throw new Error('SHEET_ID belum diatur di Script Properties.');
+  if (!c.githubToken) throw new Error('GITHUB_TOKEN belum diatur di Script Properties.');
+  if (!c.githubOwner) throw new Error('GITHUB_OWNER belum diatur di Script Properties.');
+  if (!c.sourceRepo) throw new Error('GITHUB_SOURCE_REPO belum diatur di Script Properties.');
+  return c;
 }
 
-function getSheet_(name, headers) {
-  const cfg = getConfig();
-  const ss = SpreadsheetApp.openById(cfg.sheetId);
+function sheet_(name, headers) {
+  const ss = SpreadsheetApp.openById(config_().sheetId);
   let sh = ss.getSheetByName(name);
-
   if (!sh) sh = ss.insertSheet(name);
-
-  if (headers && sh.getLastRow() === 0) {
-    sh.getRange(1, 1, 1, headers.length).setValues([headers]);
-  }
-
+  if (headers && sh.getLastRow() === 0) sh.getRange(1, 1, 1, headers.length).setValues([headers]);
   return sh;
 }
 
 function initSheets() {
-  getSheet_('customers', [
-    'id','name','business_name','category','email','whatsapp','city','address','website_id','status','created_at'
-  ]);
-
-  getSheet_('websites', [
-    'website_id','customer_id','business_name','theme','repository','repository_url','website_url','status','created_at','updated_at'
-  ]);
-
+  sheet_('customers', ['id','name','business_name','category','email','whatsapp','city','address','website_id','status','created_at']);
+  sheet_('websites', ['website_id','customer_id','business_name','theme','repository','repository_url','website_url','status','created_at','updated_at']);
   return { message: 'Sheets initialized successfully' };
 }
 
-function sheetObjects_(sheetName) {
-  const sh = getSheet_(sheetName);
+function objects_(name) {
+  const sh = sheet_(name);
   const values = sh.getDataRange().getValues();
   if (values.length <= 1) return [];
-
   const headers = values[0].map(String);
   return values.slice(1).map(function(row) {
-    const obj = {};
-    headers.forEach(function(h, i) { obj[h] = row[i]; });
-    return obj;
+    const o = {};
+    headers.forEach(function(h, i) { o[h] = row[i]; });
+    return o;
   });
 }
 
-function listCustomers() {
-  return sheetObjects_('customers');
-}
-
-function listWebsites() {
-  return sheetObjects_('websites');
-}
+function listCustomers() { return objects_('customers'); }
+function listWebsites() { return objects_('websites'); }
 
 function createCustomer(data) {
-  const sh = getSheet_('customers', [
-    'id','name','business_name','category','email','whatsapp','city','address','website_id','status','created_at'
-  ]);
-
+  const sh = sheet_('customers', ['id','name','business_name','category','email','whatsapp','city','address','website_id','status','created_at']);
   const name = String(data.name || '').trim();
   const businessName = String(data.business_name || '').trim();
-
   if (!name) throw new Error('Nama customer wajib diisi.');
   if (!businessName) throw new Error('Nama bisnis wajib diisi.');
-
   const id = 'CUST-' + Utilities.getUuid().replace(/-/g, '').slice(0, 8).toUpperCase();
-  const now = new Date().toISOString();
-
-  sh.appendRow([
-    id,
-    name,
-    businessName,
-    String(data.category || '').trim(),
-    String(data.email || '').trim(),
-    String(data.whatsapp || '').trim(),
-    String(data.city || '').trim(),
-    String(data.address || '').trim(),
-    '',
-    'active',
-    now
-  ]);
-
-  return {
-    id: id,
-    name: name,
-    business_name: businessName,
-    message: 'Customer created successfully'
-  };
+  sh.appendRow([id, name, businessName, String(data.category || '').trim(), String(data.email || '').trim(), String(data.whatsapp || '').trim(), String(data.city || '').trim(), String(data.address || '').trim(), '', 'active', new Date().toISOString()]);
+  return { id: id, name: name, business_name: businessName, message: 'Customer created successfully' };
 }
 
 function generateWebsite(data) {
-  const cfg = getConfig();
+  const cfg = config_();
   const customerId = String(data.customer_id || '').trim();
   const theme = String(data.theme || '').trim().toLowerCase();
-
   if (!customerId) throw new Error('customer_id wajib diisi.');
   if (!theme) throw new Error('theme wajib diisi.');
 
-  const customer = listCustomers().find(function(c) {
-    return String(c.id) === customerId;
-  });
-
+  const customer = listCustomers().find(function(c) { return String(c.id) === customerId; });
   if (!customer) throw new Error('Customer tidak ditemukan: ' + customerId);
 
-  const allowedThemes = [
-    'clarity','vita','medix','serenity',
-    'aurelia','tropica','urban','haven',
-    'noir','casa','savor','mesa'
-  ];
-
-  if (allowedThemes.indexOf(theme) === -1) {
-    throw new Error('Theme tidak valid: ' + theme);
-  }
+  const themes = ['clarity','vita','medix','serenity','aurelia','tropica','urban','haven','noir','casa','savor','mesa'];
+  if (themes.indexOf(theme) === -1) throw new Error('Theme tidak valid: ' + theme);
 
   const websites = listWebsites();
-  const existing = websites.find(function(w) {
-    return String(w.customer_id) === customerId;
-  });
+  const existing = websites.find(function(w) { return String(w.customer_id) === customerId; });
+  if (existing && existing.repository) throw new Error('Customer ini sudah memiliki website: ' + existing.repository + '. Hapus/reset website lama di Sheet jika ingin membuat ulang repository baru.');
 
-  if (existing && existing.repository) {
-    throw new Error(
-      'Customer ini sudah memiliki website: ' + existing.repository +
-      '. Hapus/reset website lama di Sheet jika ingin membuat ulang repository baru.'
-    );
-  }
-
-  const repository = createUniqueRepositoryName_(customer.business_name);
+  const repository = uniqueRepoName_(customer.business_name);
   const repositoryUrl = 'https://github.com/' + cfg.githubOwner + '/' + repository;
 
-  // Create the repository first. The detailed GitHub error is preserved.
   createRepository_(cfg, repository, customer.business_name);
-
   try {
     copyThemeToRepo_(cfg, theme, repository, customer);
     enablePages_(cfg, repository);
   } catch (err) {
-    // The repository was already created. Keep it visible and return the real failure.
-    throw new Error(
-      'Repository berhasil dibuat (' + repository + '), tetapi proses publish gagal: ' +
-      (err && err.message ? err.message : String(err))
-    );
+    throw new Error('Repository berhasil dibuat (' + repository + '), tetapi proses publish gagal: ' + (err && err.message ? err.message : String(err)));
   }
 
   const websiteId = 'WEB-' + Utilities.getUuid().replace(/-/g, '').slice(0, 8).toUpperCase();
   const websiteUrl = 'https://' + cfg.githubOwner + '.github.io/' + repository + '/';
   const now = new Date().toISOString();
+  const wsh = sheet_('websites', ['website_id','customer_id','business_name','theme','repository','repository_url','website_url','status','created_at','updated_at']);
+  wsh.appendRow([websiteId, customerId, customer.business_name, theme, repository, repositoryUrl, websiteUrl, 'published', now, now]);
 
-  const websiteSheet = getSheet_('websites', [
-    'website_id','customer_id','business_name','theme','repository','repository_url','website_url','status','created_at','updated_at'
-  ]);
-
-  websiteSheet.appendRow([
-    websiteId,
-    customerId,
-    customer.business_name,
-    theme,
-    repository,
-    repositoryUrl,
-    websiteUrl,
-    'published',
-    now,
-    now
-  ]);
-
-  const customerSheet = getSheet_('customers');
-  const rows = customerSheet.getDataRange().getValues();
+  const csh = sheet_('customers');
+  const rows = csh.getDataRange().getValues();
   const headers = rows[0].map(String);
-  const customerIdCol = headers.indexOf('id') + 1;
-  const websiteIdCol = headers.indexOf('website_id') + 1;
-
-  if (customerIdCol > 0 && websiteIdCol > 0) {
+  const idCol = headers.indexOf('id');
+  const webCol = headers.indexOf('website_id');
+  if (idCol >= 0 && webCol >= 0) {
     for (let r = 1; r < rows.length; r++) {
-      if (String(rows[r][customerIdCol - 1]) === customerId) {
-        customerSheet.getRange(r + 1, websiteIdCol).setValue(websiteId);
-        break;
-      }
+      if (String(rows[r][idCol]) === customerId) { csh.getRange(r + 1, webCol + 1).setValue(websiteId); break; }
     }
   }
 
-  return {
-    website_id: websiteId,
-    customer_id: customerId,
-    repository: repository,
-    repository_url: repositoryUrl,
-    website_url: websiteUrl,
-    theme: theme,
-    status: 'published'
-  };
+  return { website_id: websiteId, customer_id: customerId, repository: repository, repository_url: repositoryUrl, website_url: websiteUrl, theme: theme, status: 'published' };
 }
 
-function createUniqueRepositoryName_(businessName) {
-  let base = String(businessName || 'website')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 40);
-
+function uniqueRepoName_(businessName) {
+  let base = String(businessName || 'website').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
   if (!base) base = 'website';
-
-  // Always append a short UUID so repeated customers/business names never collide.
   return 'site-' + base + '-' + Utilities.getUuid().replace(/-/g, '').slice(0, 8).toLowerCase();
 }
 
-function githubRequest_(cfg, method, endpoint, payload) {
-  const options = {
+function github_(cfg, method, endpoint, payload) {
+  const opt = {
     method: method,
     muteHttpExceptions: true,
     headers: {
-      'Authorization': 'Bearer ' + cfg.githubToken,
-      'Accept': 'application/vnd.github+json',
+      Authorization: 'Bearer ' + cfg.githubToken,
+      Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': API_VERSION
     }
   };
-
   if (payload !== undefined && payload !== null) {
-    options.contentType = 'application/json';
-    options.payload = JSON.stringify(payload);
+    opt.contentType = 'application/json';
+    opt.payload = JSON.stringify(payload);
   }
-
-  const response = UrlFetchApp.fetch('https://api.github.com' + endpoint, options);
-  const status = response.getResponseCode();
-  const text = response.getContentText();
-
-  let body = null;
-  try {
-    body = JSON.parse(text);
-  } catch (_) {
-    body = { raw: text };
-  }
-
-  if (status < 200 || status >= 300) {
-    const detail = formatGithubError_(status, endpoint, body);
-    throw new Error(detail);
-  }
-
+  const res = UrlFetchApp.fetch('https://api.github.com' + endpoint, opt);
+  const status = res.getResponseCode();
+  const text = res.getContentText();
+  let body;
+  try { body = JSON.parse(text); } catch (_) { body = { raw: text }; }
+  if (status < 200 || status >= 300) throw new Error(formatGithubError_(status, endpoint, body));
   return body;
 }
 
 function formatGithubError_(status, endpoint, body) {
   const parts = [];
-  const message = body && body.message ? String(body.message) : '';
-
-  if (message) parts.push(message);
-
-  if (body && Array.isArray(body.errors) && body.errors.length) {
-    body.errors.forEach(function(err) {
-      if (typeof err === 'string') {
-        parts.push(err);
-      } else {
-        const bits = [];
-        if (err.resource) bits.push('resource=' + err.resource);
-        if (err.field) bits.push('field=' + err.field);
-        if (err.code) bits.push('code=' + err.code);
-        if (err.message) bits.push(String(err.message));
-        parts.push(bits.join(', '));
+  if (body && body.message) parts.push(String(body.message));
+  if (body && Array.isArray(body.errors)) {
+    body.errors.forEach(function(e) {
+      if (typeof e === 'string') parts.push(e);
+      else {
+        const x = [];
+        if (e.resource) x.push('resource=' + e.resource);
+        if (e.field) x.push('field=' + e.field);
+        if (e.code) x.push('code=' + e.code);
+        if (e.message) x.push(String(e.message));
+        parts.push(x.join(', '));
       }
     });
   }
-
-  if (body && body.documentation_url) {
-    parts.push('Docs: ' + body.documentation_url);
-  }
-
+  if (body && body.documentation_url) parts.push('Docs: ' + body.documentation_url);
   if (!parts.length && body && body.raw) parts.push(body.raw);
   if (!parts.length) parts.push('Tidak ada detail dari GitHub.');
-
   return 'GitHub API ' + status + ': ' + parts.join(' | ') + ' [' + endpoint + ']';
 }
 
 function createRepository_(cfg, repository, businessName) {
-  const payload = {
+  return github_(cfg, 'post', '/user/repos', {
     name: repository,
     description: 'Website generated by Nakama Digital - ' + String(businessName || ''),
     private: false,
@@ -341,117 +188,144 @@ function createRepository_(cfg, repository, businessName) {
     has_projects: false,
     has_wiki: false,
     auto_init: false
-  };
-
-  return githubRequest_(cfg, 'post', '/user/repos', payload);
-}
-
-function githubGetContents_(cfg, repository, path) {
-  const encodedPath = path.split('/').map(encodeURIComponent).join('/');
-  return githubRequest_(cfg, 'get', '/repos/' + encodeURIComponent(cfg.githubOwner) + '/' + encodeURIComponent(repository) + '/contents/' + encodedPath, null);
-}
-
-function copyThemeToRepo_(cfg, theme, repository, customer) {
-  // Read the theme directory from the source repository through GitHub Contents API.
-  const items = githubGetContents_(cfg, cfg.sourceRepo, 'public/' + theme);
-  if (!Array.isArray(items)) {
-    throw new Error('Theme public/' + theme + ' tidak ditemukan di source repository.');
-  }
-
-  copyGitHubTree_(cfg, theme, repository, items, 'public/' + theme);
-
-  // Create/replace a small site config after the theme files are copied.
-  const configContent = [
-    'window.NAKAMA_SITE = ' + JSON.stringify({
-      businessName: String(customer.business_name || ''),
-      customerName: String(customer.name || ''),
-      category: String(customer.category || ''),
-      email: String(customer.email || ''),
-      whatsapp: String(customer.whatsapp || ''),
-      city: String(customer.city || ''),
-      address: String(customer.address || '')
-    }, null, 2) + ';'
-  ].join('\n');
-
-  putFile_(cfg, repository, 'js/nakama-site-config.js', configContent, 'Add Nakama site configuration');
-}
-
-function copyGitHubTree_(cfg, theme, repository, items, sourcePrefix) {
-  items.forEach(function(item) {
-    if (item.type === 'dir') {
-      const children = githubGetContents_(cfg, cfg.sourceRepo, item.path);
-      if (!Array.isArray(children)) throw new Error('Tidak bisa membaca folder theme: ' + item.path);
-      copyGitHubTree_(cfg, theme, repository, children, sourcePrefix);
-      return;
-    }
-
-    if (item.type !== 'file') return;
-
-    const source = githubRequest_(cfg, 'get', '/repos/' + encodeURIComponent(cfg.githubOwner) + '/' + encodeURIComponent(cfg.sourceRepo) + '/contents/' + item.path.split('/').map(encodeURIComponent).join('/'), null);
-    const targetPath = item.path.replace(/^public\/' + theme + '\/?/, '');
-
-    if (!targetPath) return;
-
-    let content = '';
-    if (source.content) {
-      content = Utilities.newBlob(Utilities.base64Decode(source.content.replace(/\n/g, ''))).getDataAsString('UTF-8');
-    }
-
-    if (/\.html?$/i.test(targetPath)) {
-      content = transformHtml_(content, customerSafePlaceholder_());
-    }
-
-    putFile_(cfg, repository, targetPath, content, 'Add theme file ' + targetPath);
   });
 }
 
-function customerSafePlaceholder_() {
-  return '';
+function githubJson_(cfg, method, endpoint, payload) {
+  return github_(cfg, method, endpoint, payload);
 }
 
-function transformHtml_(html, unused) {
-  // Keep the existing theme markup intact. Only add a safe config loader if it is not already present.
-  if (!/nakama-site-config\.js/i.test(html)) {
-    if (/<\/body>/i.test(html)) {
-      html = html.replace(/<\/body>/i, '<script src="js/nakama-site-config.js"></script>\n</body>');
-    } else {
-      html += '\n<script src="js/nakama-site-config.js"></script>\n';
+function getRef_(cfg, repository, ref) {
+  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/ref/' + encodeURIComponent(ref), null);
+}
+
+function getCommit_(cfg, repository, sha) {
+  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits/' + sha, null);
+}
+
+function getTree_(cfg, repository, treeSha) {
+  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees/' + treeSha + '?recursive=1', null);
+}
+
+function getSourceTree_(cfg, theme) {
+  const ref = getRef_(cfg, cfg.sourceRepo, 'heads/main');
+  const commit = getCommit_(cfg, cfg.sourceRepo, ref.object.sha);
+  const tree = getTree_(cfg, cfg.sourceRepo, commit.tree.sha);
+  return tree.tree.filter(function(item) {
+    return item.type === 'blob' && item.path.indexOf('public/' + theme + '/') === 0;
+  });
+}
+
+function getBlob_(cfg, repository, sha) {
+  return githubJson_(cfg, 'get', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs/' + sha, null);
+}
+
+function decodeBlobText_(encoded) {
+  return Utilities.newBlob(Utilities.base64Decode(String(encoded).replace(/\n/g, ''))).getDataAsString('UTF-8');
+}
+
+function copyThemeToRepo_(cfg, theme, repository, customer) {
+  const sourceTree = getSourceTree_(cfg, theme);
+  if (!sourceTree.length) throw new Error('Theme public/' + theme + ' tidak ditemukan di source repository.');
+
+  const blobs = [];
+  sourceTree.forEach(function(item) {
+    const sourceBlob = getBlob_(cfg, cfg.sourceRepo, item.sha);
+    let content = sourceBlob.encoding === 'base64' ? sourceBlob.content : '';
+    const relative = item.path.replace('public/' + theme + '/', '');
+
+    // HTML is text and can safely be customized. Binary assets remain byte-for-byte base64.
+    if (/\.html?$/i.test(relative)) {
+      let html = decodeBlobText_(content);
+      html = customizeHtml_(html, customer);
+      content = Utilities.base64Encode(Utilities.newBlob(html, 'text/html').getBytes());
     }
+
+    blobs.push({ path: relative, mode: '100644', type: 'blob', content: content, encoding: 'base64' });
+  });
+
+  // GitHub's tree API expects blob SHA, not base64 content. Create blobs first.
+  const entries = blobs.map(function(b) {
+    const blob = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
+      content: b.content,
+      encoding: 'base64'
+    });
+    return { path: b.path, mode: b.mode, type: 'blob', sha: blob.sha };
+  });
+
+  const baseTree = getRef_(cfg, repository, 'heads/main').object.sha;
+  const baseCommit = getCommit_(cfg, repository, baseTree);
+  const tree = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
+    base_tree: baseCommit.tree.sha,
+    tree: entries
+  });
+
+  const commit = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
+    message: 'Generate website from ' + theme + ' theme',
+    tree: tree.sha
+  });
+
+  githubJson_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', {
+    sha: commit.sha,
+    force: false
+  });
+}
+
+function customizeHtml_(html, customer) {
+  const business = escapeHtml_(String(customer.business_name || ''));
+  const title = business || 'Website';
+  const description = business ? business + ' - Website generated by Nakama Digital' : 'Website generated by Nakama Digital';
+
+  html = html.replace(/<title>[^<]*<\/title>/i, '<title>' + business + '</title>');
+  html = html.replace(/<meta\s+name=["\']description["\']\s+content=["\'][^"\']*["\']\s*\/?\s*>/i, '<meta name="description" content="' + escapeAttr_(description) + '">');
+  html = html.replace(/<h1([^>]*)>[^<]*<\/h1>/i, '<h1$1>' + business + '</h1>');
+
+  if (!/nakama-site-config\.js/i.test(html)) {
+    const script = '<script src="js/nakama-site-config.js"></script>';
+    if (/<\/body>/i.test(html)) html = html.replace(/<\/body>/i, script + '\n</body>');
+    else html += '\n' + script;
   }
   return html;
 }
 
-function putFile_(cfg, repository, path, content, message) {
-  const payload = {
-    message: message,
-    content: Utilities.base64Encode(Utilities.newBlob(String(content)).getBytes())
-  };
+function escapeHtml_(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function escapeAttr_(s) { return escapeHtml_(s); }
 
-  // Contents API creates a new file. A 422 here means the target already exists;
-  // surface the exact GitHub response rather than hiding it.
-  return githubRequest_(cfg, 'put', '/repos/' + encodeURIComponent(cfg.githubOwner) + '/' + encodeURIComponent(repository) + '/contents/' + path.split('/').map(encodeURIComponent).join('/'), payload);
+function putConfigFile_(cfg, repository, customer) {
+  const config = 'window.NAKAMA_SITE = ' + JSON.stringify({
+    businessName: String(customer.business_name || ''),
+    customerName: String(customer.name || ''),
+    category: String(customer.category || ''),
+    email: String(customer.email || ''),
+    whatsapp: String(customer.whatsapp || ''),
+    city: String(customer.city || ''),
+    address: String(customer.address || '')
+  }, null, 2) + ';\n';
+
+  const blob = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/blobs', {
+    content: Utilities.base64Encode(Utilities.newBlob(config, 'application/javascript').getBytes()),
+    encoding: 'base64'
+  });
+  const ref = getRef_(cfg, repository, 'heads/main');
+  const commit = getCommit_(cfg, repository, ref.object.sha);
+  const tree = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/trees', {
+    base_tree: commit.tree.sha,
+    tree: [{ path: 'js/nakama-site-config.js', mode: '100644', type: 'blob', sha: blob.sha }]
+  });
+  const newCommit = githubJson_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
+    message: 'Add Nakama site configuration',
+    tree: tree.sha
+  });
+  githubJson_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: newCommit.sha, force: false });
 }
 
 function enablePages_(cfg, repository) {
-  const endpoint = '/repos/' + encodeURIComponent(cfg.githubOwner) + '/' + encodeURIComponent(repository) + '/pages';
-
+  const endpoint = '/repos/' + cfg.githubOwner + '/' + repository + '/pages';
   try {
-    githubRequest_(cfg, 'post', endpoint, {
-      source: {
-        branch: 'main',
-        path: '/'
-      }
-    });
+    return githubJson_(cfg, 'post', endpoint, { source: { branch: 'main', path: '/' } });
   } catch (err) {
     const msg = String(err && err.message ? err.message : err);
-
-    // GitHub can return 409 when Pages is already enabled. That is not a fatal error.
-    if (/GitHub API 409/i.test(msg) || /already exists/i.test(msg) || /already enabled/i.test(msg)) {
-      return { alreadyEnabled: true };
-    }
-
+    if (/GitHub API 409/i.test(msg) || /already exists/i.test(msg) || /already enabled/i.test(msg)) return { alreadyEnabled: true };
     throw err;
   }
-
-  return { enabled: true };
 }
