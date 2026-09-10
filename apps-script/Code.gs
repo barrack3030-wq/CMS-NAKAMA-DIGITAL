@@ -247,7 +247,8 @@ function copyThemeToRepo_(cfg, theme, repository, customer) {
   });
   const commit = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
     message: 'Generate website from ' + theme + ' theme',
-    tree: tree.sha
+    tree: tree.sha,
+    parents: [baseRef.object.sha]
   });
   github_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: commit.sha, force: false });
 }
@@ -292,18 +293,25 @@ function putConfigFile_(cfg, repository, customer) {
   });
   const newCommit = github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/git/commits', {
     message: 'Add Nakama site configuration',
-    tree: tree.sha
+    tree: tree.sha,
+    parents: [ref.object.sha]
   });
   github_(cfg, 'patch', '/repos/' + cfg.githubOwner + '/' + repository + '/git/refs/heads/main', { sha: newCommit.sha, force: false });
 }
 
 function enablePages_(cfg, repository) {
-  const endpoint = '/repos/' + cfg.githubOwner + '/' + repository + '/pages';
   try {
-    return github_(cfg, 'post', endpoint, { source: { branch: 'main', path: '/' } });
+    github_(cfg, 'post', '/repos/' + cfg.githubOwner + '/' + repository + '/pages', {
+      source: { branch: 'main', path: '/' }
+    });
   } catch (err) {
     const msg = String(err && err.message ? err.message : err);
-    if (/GitHub API 409/i.test(msg) || /already exists/i.test(msg) || /already enabled/i.test(msg)) return { alreadyEnabled: true };
+    if (/already exists|already enabled|409/i.test(msg)) {
+      github_(cfg, 'put', '/repos/' + cfg.githubOwner + '/' + repository + '/pages', {
+        source: { branch: 'main', path: '/' }
+      });
+      return;
+    }
     throw err;
   }
 }
